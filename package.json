@@ -1,0 +1,37 @@
+{
+  "name": "1-Passport-Example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run lint",
+    "start": "node server.js",
+    "lint": "semistandard --verbose | snazzy",
+    "format": "prettier-semi --write '**/*.js'",
+    "watch": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "helmet": "^4.2.0",
+    "install": "^0.13.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "npm": "^6.14.10",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.3.5",
+    "tabulator-tables": "^4.9.1"
+  },
+  "devDependencies": {
+    "prettier-semi-cli": "^1.0.0",
+    "semistandard": "^16.0.0",
+    "snazzy": "^9.0.0"
+  }
+}
