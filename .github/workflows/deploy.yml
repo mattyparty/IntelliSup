@@ -16,5 +16,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.7.8 # This is the action
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: 'project2-bsf' #Must be unique in Heroku
-          heroku_email: 'ferguson.bs@gmail.com'
+          heroku_app_name: "intellisup" #Must be unique in Heroku
+          heroku_email: "matthewpewewardy@gmail.com"
