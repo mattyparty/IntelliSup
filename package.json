@@ -30,6 +30,7 @@
     "tabulator-tables": "^4.9.1"
   },
   "devDependencies": {
+    "eslint": "^7.16.0",
     "prettier-semi-cli": "^1.0.0",
     "semistandard": "^16.0.0",
     "snazzy": "^9.0.0"

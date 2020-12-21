@@ -1,14 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
-  const Supplier = sequelize.define("supplier", {
+  const Supplier = sequelize.define('supplier', {
     supplier_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
 
     supplier_number: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+      allowNull: false
+    }
   });
   return Supplier;
 };
