@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS supplier_map_login;
 CREATE TABLE supplier_map_login (
   
   id INTEGER(11) AUTO_INCREMENT NOT NULL
-  ,loginEmail VARCHAR(200)
+  ,login_email VARCHAR(200)
   ,supplier_number integer NOT NULL
   ,PRIMARY KEY (id)
 );

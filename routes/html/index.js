@@ -30,8 +30,14 @@ router.get('/logout', (req, res) => {
 
 // Here we've add our isAuthenticated middleware to this route.
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
+// /////////////////////////////////////////////////////////////////////////
+// this was the path from the source code that rendered the static html, trying out handlebars below - matt
+// router.get('/members', isAuthenticated, (_req, res) => {
+//   res.sendFile(path.join(__dirname, '../../public/members.html'));
+// });
+
 router.get('/members', isAuthenticated, (_req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/members.html'));
+  res.render('index');
 });
 
 module.exports = router;
