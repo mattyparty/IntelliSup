@@ -1,5 +1,5 @@
 {
-  "name": "1-Passport-Example",
+  "name": "IntelliSup",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -34,5 +34,11 @@
     "prettier-semi-cli": "^1.0.0",
     "semistandard": "^16.0.0",
     "snazzy": "^9.0.0"
+  },
+  "semistandard": {
+    "ignore": [
+      "/public/js/tabulator.js",
+      "/public/js/tabulator.min.js"
+    ]
   }
 }
