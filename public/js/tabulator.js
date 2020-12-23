@@ -39,7 +39,13 @@ const makeTable = (data) => {
       {
         title: 'Tracking Number',
         field: 'tracking_number',
-        hozAlign: 'center'
+        hozAlign: 'center',
+        editor: 'textarea',
+        editorParams: {
+          elementAttributes: {
+            maxlength: '100' //set the maximum character length of the textarea element to 10 characters
+          }
+        }
       }
     ]
   });
