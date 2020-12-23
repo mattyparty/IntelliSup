@@ -31,6 +31,7 @@ app.use(
 );
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// this is saying that the public directly becomes "/" or root of static provided files - mlp
 app.use(express.static('public'));
 // We need to use sessions to keep track of our user's login status
 app.use(
