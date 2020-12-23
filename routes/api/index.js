@@ -38,15 +38,12 @@ router.get('/user_data', (req, res) => {
   const { password, ...user } = req.user;
   res.json(user);
 });
-
+// matt added this API Route
 router.get('/members', isAuthenticated, (req, res) => {
-  // code here
-  // console.log(db);
   db.open_pos
     .findAll({})
     .then((results) => {
       res.json({ results });
-      // error handling here
     })
     .catch((err) => {
       console.log(err);

@@ -16,14 +16,29 @@ const makeTable = (data) => {
       // Define Table Columns
       { title: 'Item', field: 'item', width: 150 },
       {
-        title: 'supplier_number,',
-        field: 'supplier_number,',
+        title: 'Supplier Number',
+        field: 'supplier_number',
         hozAlign: 'left'
       },
 
       {
         title: 'Po Number',
         field: 'po_number',
+        hozAlign: 'center'
+      },
+      {
+        title: 'Po Due Date',
+        field: 'po_due_date',
+        hozAlign: 'center'
+      },
+      {
+        title: 'Estimated Ship Date',
+        field: 'est_ship_date',
+        hozAlign: 'center'
+      },
+      {
+        title: 'Tracking Number',
+        field: 'tracking_number',
         hozAlign: 'center'
       }
     ]
