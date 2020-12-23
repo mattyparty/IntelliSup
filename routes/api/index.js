@@ -2,7 +2,7 @@ const router = require('express').Router();
 // Requiring our models and passport as we've configured it
 const db = require('../../models');
 const passport = require('../../config/passport');
-
+const isAuthenticated = require('../../config/middleware/isAuthenticated');
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
@@ -22,7 +22,7 @@ router.post('/signup', (req, res) => {
     .then(() => {
       res.redirect(307, '/api/login');
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(401).json(err);
     });
 });
@@ -37,6 +37,20 @@ router.get('/user_data', (req, res) => {
   // Sending back a password, even a hashed password, isn't a good idea
   const { password, ...user } = req.user;
   res.json(user);
+});
+
+router.get('/members', isAuthenticated, (req, res) => {
+  // code here
+  // console.log(db);
+  db.open_pos
+    .findAll({})
+    .then((results) => {
+      res.json({ results });
+      // error handling here
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 module.exports = router;
