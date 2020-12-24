@@ -3,7 +3,7 @@ use passport_demo;
 TRUNCATE TABLE open_pos 
 INSERT INTO open_pos (po_number,item,po_recieved,po_due_date,supplier_number,createdAt,updatedAt)
 VALUES 
-('12000', 'power stone', FALSE, 11/1/2020, 1,now(),now())
+('12000', 'power stone', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'), 1,now(),now())
 ,('12001', 'time stone', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'),1,now(),now())
 ,('12002', 'mark IV suit', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'),1,now(),now())
 ,('12003', 'thor hammer', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'),1,now(),now())
@@ -20,11 +20,11 @@ VALUES
 ,('12014', 'vibranium', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'),3,now(),now())
 ,('12015', 'soul stone', FALSE,STR_TO_DATE('1-01-2012', '%d-%m-%Y'),3,now(),now())
 ,('12016', 'quinjet', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'),3,now(),now())
-,('12017', 'arc reactor',STR_TO_DATE('1-01-2012', '%d-%m-%Y'),3,now(),now())
-,('12018', 'war machine suit', FALSE,STR_TO_DATE('1-01-2012', '%d-%m-%Y'),3,now(),now());
-
-INSERT INTO supplier (supplier_number,supplier_name)
+,('12017', 'arc reactor',FALSE,STR_TO_DATE('1-01-2012', '%d-%m-%Y'),3,now(),now())
+,('12018', 'war machine suit', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'),3,now(),now());
+TRUNCATE TABLE supplier;
+INSERT INTO supplier (supplier_number,supplier_name,createdAt,updatedAt)
 VALUES
-(1,'Stark Industries')
-,(2,'Anvil Corp')
-,(3,'Wayne Enterprises')
+(1,'Stark Industries',now(),now())
+,(2,'Anvil Corp',now(),now())
+,(3,'Wayne Enterprises',now(),now())
