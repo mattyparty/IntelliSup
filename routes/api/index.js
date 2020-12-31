@@ -3,6 +3,8 @@ const router = require('express').Router();
 const db = require('../../models');
 const passport = require('../../config/passport');
 const isAuthenticated = require('../../config/middleware/isAuthenticated');
+// const supplier = require('../../models/supplier');
+const { query } = require('express');
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
@@ -39,11 +41,16 @@ router.get('/user_data', (req, res) => {
   res.json(user);
 });
 // matt added this API Route
+
 router.get('/members', isAuthenticated, (req, res) => {
-  db.open_pos
-    .findAll({})
+  db.Openpos.findAll({
+    where: query,
+    include: [db.Supplier]
+  })
     .then((results) => {
       res.json({ results });
+      // console.log(results);
+      // console.log(db.Supplier);
     })
     .catch((err) => {
       console.log(err);

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Supplier = sequelize.define(
-    'supplier',
+    'Supplier',
     {
       supplier_name: {
         type: DataTypes.STRING,
@@ -14,5 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     { freezeTableName: true }
   );
+  // added association - mlp
+
+  Supplier.associate = (models) => {
+    Supplier.hasMany(models.Openpos);
+  };
   return Supplier;
 };

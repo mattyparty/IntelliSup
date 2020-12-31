@@ -2,7 +2,7 @@
 
 const getData = () => {
   $.get('/api/members').then((response) => {
-    console.log(response);
+    console.log(response.results);
     makeTable(response.results);
   });
 };
@@ -14,27 +14,27 @@ const makeTable = (data) => {
     layout: 'fitColumns', // fit columns to width of table (optional)
     columns: [
       // Define Table Columns
-      { title: 'Item', field: 'item', width: 150 },
       {
-        title: 'Supplier Number',
-        field: 'supplier_number',
-        hozAlign: 'left'
+        title: 'supplier name',
+        field: 'Supplier.supplier_name',
+        hozAlign: 'center',
       },
+      { title: 'Item', field: 'item' },
 
       {
         title: 'Po Number',
         field: 'po_number',
-        hozAlign: 'center'
+        hozAlign: 'center',
       },
       {
         title: 'Po Due Date',
         field: 'po_due_date',
-        hozAlign: 'center'
+        hozAlign: 'center',
       },
       {
         title: 'Estimated Ship Date',
         field: 'est_ship_date',
-        hozAlign: 'center'
+        hozAlign: 'center',
       },
       {
         title: 'Tracking Number',
@@ -43,11 +43,11 @@ const makeTable = (data) => {
         editor: 'textarea',
         editorParams: {
           elementAttributes: {
-            maxlength: '100' //set the maximum character length of the textarea element to 10 characters
-          }
-        }
-      }
-    ]
+            maxlength: '100', //set the maximum character length of the textarea element to 10 characters
+          },
+        },
+      },
+    ],
   });
 };
 

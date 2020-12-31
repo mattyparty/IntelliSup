@@ -40,5 +40,13 @@
       "/public/js/tabulator.js",
       "/public/js/tabulator.min.js"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattyparty/IntelliSup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mattyparty/IntelliSup/issues"
+  },
+  "homepage": "https://github.com/mattyparty/IntelliSup#readme"
 }
