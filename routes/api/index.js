@@ -49,12 +49,17 @@ router.get('/members', isAuthenticated, (req, res) => {
   })
     .then((results) => {
       res.json({ results });
-      // console.log(results);
-      // console.log(db.Supplier);
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
+router.put('/api/members/:id', isAuthenticated, (req, res) => {
+  db.Openpos.update(req.body, { where: { id: req.params.id } }).then(
+    (updated) => {
+      res.json(updated);
+    }
+  );
+});
 module.exports = router;
