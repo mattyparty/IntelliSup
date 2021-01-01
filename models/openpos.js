@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Openpos = sequelize.define(
-    'open_pos',
+    'Openpos',
     {
       po_number: {
         type: DataTypes.STRING,
@@ -35,5 +35,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     { freezeTableName: true }
   );
+
+  Openpos.associate = (models) => {
+    Openpos.belongsTo(models.Supplier, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Openpos;
 };
