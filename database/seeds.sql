@@ -1,7 +1,15 @@
+-- had to add supplier id this is created when the model is created - mlp
+use passport_demo;
+TRUNCATE TABLE suppliers;
+INSERT INTO suppliers (supplier_number,supplier_name,created_at,updated_at)
+VALUES
+(1,'Stark Industries',now(),now())
+,(2,'Anvil Corp',now(),now())
+,(3,'Wayne Enterprises',now(),now())
 
 use passport_demo;
 
-INSERT INTO openpos (po_number,item,po_recieved,po_due_date,supplier_number,createdAt,updatedAt,supplierId)
+INSERT INTO orders (po_number,item,po_received,po_due_date,supplier_number,created_at,updated_at,supplier_id)
 VALUES 
 ('12000', 'power stone', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'), 1,now(),now(),1)
 ,('12001', 'time stone', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'),1,now(),now(),1)
@@ -22,11 +30,4 @@ VALUES
 ,('12016', 'quinjet', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'),3,now(),now(),3)
 ,('12017', 'arc reactor',FALSE,STR_TO_DATE('1-01-2012', '%d-%m-%Y'),3,now(),now(),3)
 ,('12018', 'war machine suit', FALSE, STR_TO_DATE('1-01-2012', '%d-%m-%Y'),3,now(),now(),3);
--- had to add supplier id this is created when the model is created - mlp
-use passport_demo;
-TRUNCATE TABLE supplier;
-INSERT INTO supplier (supplier_number,supplier_name,createdAt,updatedAt)
-VALUES
-(1,'Stark Industries',now(),now())
-,(2,'Anvil Corp',now(),now())
-,(3,'Wayne Enterprises',now(),now())
+

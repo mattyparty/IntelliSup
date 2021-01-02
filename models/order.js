@@ -1,8 +1,8 @@
 // const { Sequelize } = require("sequelize/types");
 
 module.exports = (sequelize, DataTypes) => {
-  const Openpos = sequelize.define(
-    'Openpos',
+  const Order = sequelize.define(
+    'order',
     {
       po_number: {
         type: DataTypes.STRING,
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      po_recieved: {
+      po_received: {
         type: DataTypes.BOOLEAN,
         allowNull: false
       },
@@ -33,16 +33,18 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     },
-    { freezeTableName: true }
+    {
+      underscored: true
+    }
   );
 
-  Openpos.associate = (models) => {
-    Openpos.belongsTo(models.Supplier, {
+  Order.associate = (models) => {
+    Order.belongsTo(models.supplier, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return Openpos;
+  return Order;
 };

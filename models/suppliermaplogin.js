@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Suppliermaplogin = sequelize.define(
+  const SupplierMapLogin = sequelize.define(
     'supplier_map_login',
     {
       login_email: {
@@ -12,7 +12,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     },
-    { freezeTableName: true }
+    {
+      underscored: true
+    }
   );
-  return Suppliermaplogin;
+  return SupplierMapLogin;
 };
