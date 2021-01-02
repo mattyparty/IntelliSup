@@ -9,10 +9,19 @@ const getData = () => {
 };
 
 const updateData = (data, id) => {
+  console.log(data);
   $.ajax({
     method: 'PUT',
     url: '/api/members/' + id,
-    data: data,
+    data: {
+      tracking_number: function() {
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].id === id) {
+            return data[i].tracking_number;
+          }
+        }
+      },
+    },
   }).then(() => {
     window.location.href = '/members';
   });
@@ -31,7 +40,7 @@ const makeTable = (data) => {
       // Define Table Columns
       {
         title: 'supplier name',
-        field: 'Supplier.supplier_name',
+        field: 'supplier.supplier_name',
         hozAlign: 'center',
       },
       { title: 'Item', field: 'item' },
@@ -76,7 +85,6 @@ const makeTable = (data) => {
       },
     ],
   });
-  console.log(Tabulator);
 };
 
 getData();

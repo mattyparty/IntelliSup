@@ -1,23 +1,23 @@
 module.exports = (sequelize, DataTypes) => {
   const Supplier = sequelize.define(
-    'Supplier',
+    'supplier',
     {
-      supplier_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-
       supplier_number: {
         type: DataTypes.INTEGER,
         allowNull: false
+      },
+
+      supplier_name: {
+        type: DataTypes.STRING,
+        allowNull: false
       }
     },
-    { freezeTableName: true }
+    { underscored: true }
   );
   // added association - mlp
 
   Supplier.associate = (models) => {
-    Supplier.hasMany(models.Openpos);
+    Supplier.hasMany(models.order);
   };
   return Supplier;
 };
