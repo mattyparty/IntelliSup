@@ -17,7 +17,7 @@ const updateData = (data, id) => {
     window.location.href = '/members';
   });
 };
-const saveButton = function(cell, formatterParams) {
+const saveButton = function (cell, formatterParams) {
   let btn = '<button>Save</button>';
   return btn;
 };
@@ -31,7 +31,7 @@ const makeTable = (data) => {
       // Define Table Columns
       {
         title: 'supplier name',
-        field: 'Supplier.supplier_name',
+        field: 'supplier.supplier_name',
         hozAlign: 'center',
       },
       { title: 'Item', field: 'item' },
@@ -66,7 +66,7 @@ const makeTable = (data) => {
         title: 'ButtonHere',
         hozAlign: 'center',
         formatter: saveButton,
-        cellClick: function(e, cell) {
+        cellClick: function (e, cell) {
           // funtion to route api here
           var row = cell.getRow();
           var id = row.getIndex();
