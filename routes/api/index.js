@@ -62,7 +62,6 @@ router.route('/members', isAuthenticated).get((req, res) => {
 });
 
 router.route('/members/:id').put((req, res) => {
-  console.log('THIS IS A CONSOLE LOG', req.body.tracking_number);
   db.order
     .update(req.body, { where: { id: req.params.id } })
     .then((updated) => {
