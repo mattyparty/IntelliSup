@@ -48,10 +48,21 @@ router.route('/user_data', isAuthenticated).get((req, res) => {
 // matt added this API Route
 
 router.route('/members', isAuthenticated).get((req, res) => {
+  if (!req.user) {
+    // The user is not logged in, send back an empty object
+    return res.json({});
+  }
+  const user = req.user.email;
+
   db.order
     .findAll({
-      where: query,
-      include: [db.supplier]
+      include: [
+        {
+          model: db.supplier_map_login,
+          where: { login_email: user }
+        },
+        { model: db.supplier }
+      ]
     })
     .then((results) => {
       res.json({ results });

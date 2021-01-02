@@ -16,5 +16,10 @@ module.exports = (sequelize, DataTypes) => {
       underscored: true
     }
   );
+
+  SupplierMapLogin.associate = (models) => {
+    SupplierMapLogin.hasMany(models.order);
+    SupplierMapLogin.belongsTo(models.supplier);
+  };
   return SupplierMapLogin;
 };
