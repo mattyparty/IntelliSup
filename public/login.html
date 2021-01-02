@@ -9,50 +9,96 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
-    />
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link href="stylesheets/style.css" rel="stylesheet" />
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header"></div>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <h2>Login Form</h2>
-          <form class="login">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email-input"
-                placeholder="Email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password-input"
-                placeholder="Password"
-              />
-            </div>
-            <button type="submit" class="btn btn-default">Login</button>
-          </form>
-          <br />
-          <p>Or sign up <a href="/">here</a></p>
+    <nav class="navbar is-primary">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+          </a>
+          <span class="navbar-burger burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a href="#" class="navbar-item is-active">Home</a>
+            <a href="#" class="navbar-item">Members</a>
+            <a href="#" class="navbar-item">Log Out</a>
+          </div>
         </div>
       </div>
-    </div>
-
-    <script type="text/javascript" src="js/login.js"></script>
+    </nav>
+    <section class="hero has-background-white-ter is-fullheight">
+      <div class="hero-body">
+        <span class="container">
+          <div class="columns is-centered">
+            <div column is-5-tablet is-4desktop is-3-widescreen>
+              <form action="POST" class="box">
+                <h3 class="title is-3">Sign Up Form</h3>
+                <div class="field">
+                  <label for="" class="label">Email address</label>
+                  <div class="control has-icons-left">
+                    <input type="email" placeholder="sampleEmail@email.com" class="input" required>
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for=""class="label">Password</label>
+                  <div class="control has-icons-left">
+                    <input type="password" placeholder="**********" class="input" required>
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="field">
+                  <button class="button is-success">Sign Up</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </span>
+        <span class="container">
+          <div class="columns is-centered">
+            <div column is-5-tablet is-4desktop is-3-widescreen>
+              <form action="POST" class="box">
+                <h3 class="title is-3">Login Form</h3>
+                <div class="field">
+                  <label for="" class="label">Email address</label>
+                  <div class="control has-icons-left">
+                    <input type="email" placeholder="sampleEmail@email.com" class="input" required>
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for=""class="label">Password</label>
+                  <div class="control has-icons-left">
+                    <input type="password" placeholder="**********" class="input" required>
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="field">
+                  <button class="button is-success">Login</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </span>
+      </div>
+    </section>
   </body>
 </html>
