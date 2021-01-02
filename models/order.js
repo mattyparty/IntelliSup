@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       po_due_date: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false
       },
       est_ship_date: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: true
       },
       tracking_number: {
