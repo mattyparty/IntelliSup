@@ -11,8 +11,8 @@ const getData = () => {
 const updateData = (data, id) => {
   $.ajax({
     method: 'PUT',
-    url: '/api/members/:' + id,
-    data: data
+    url: '/api/members/' + id,
+    data: data,
   }).then(() => {
     window.location.href = '/members';
   });
@@ -32,24 +32,24 @@ const makeTable = (data) => {
       {
         title: 'supplier name',
         field: 'Supplier.supplier_name',
-        hozAlign: 'center'
+        hozAlign: 'center',
       },
       { title: 'Item', field: 'item' },
 
       {
         title: 'Po Number',
         field: 'po_number',
-        hozAlign: 'center'
+        hozAlign: 'center',
       },
       {
         title: 'Po Due Date',
         field: 'po_due_date',
-        hozAlign: 'center'
+        hozAlign: 'center',
       },
       {
         title: 'Estimated Ship Date',
         field: 'est_ship_date',
-        hozAlign: 'center'
+        hozAlign: 'center',
       },
       {
         title: 'Tracking Number',
@@ -58,9 +58,9 @@ const makeTable = (data) => {
         editor: 'textarea',
         editorParams: {
           elementAttributes: {
-            maxlength: '100' //set the maximum character length of the textarea element to 10 characters
-          }
-        }
+            maxlength: '100', //set the maximum character length of the textarea element to 10 characters
+          },
+        },
       },
       {
         title: 'ButtonHere',
@@ -72,9 +72,9 @@ const makeTable = (data) => {
           var id = row.getIndex();
           updateData(data, id);
           console.log(id);
-        }
-      }
-    ]
+        },
+      },
+    ],
   });
   console.log(Tabulator);
 };
