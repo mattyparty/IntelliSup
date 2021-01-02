@@ -39,12 +39,13 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Order.associate = (models) => {
-    Order.belongsTo(models.supplier, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
+    Order.belongsTo(models.supplier);
+    Order.belongsTo(models.supplier_map_login);
   };
 
   return Order;
 };
+
+// select from orders
+// join on supplier_map_login
+// where users =  authtenicated user
