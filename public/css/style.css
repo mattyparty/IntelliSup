@@ -1,0 +1,12 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+.navbar-item img {
+    max-height: 80px;
+}
+
+.navbar.is-spaced {
+    padding: .25rem .5rem;
+}
