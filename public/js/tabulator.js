@@ -9,15 +9,24 @@ const getData = () => {
 };
 
 const updateData = (data, id) => {
+  console.log(data);
   $.ajax({
     method: 'PUT',
     url: '/api/members/' + id,
-    data: data,
+    data: {
+      tracking_number: function() {
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].id === id) {
+            return data[i].tracking_number;
+          }
+        }
+      },
+    },
   }).then(() => {
     window.location.href = '/members';
   });
 };
-const saveButton = function (cell, formatterParams) {
+const saveButton = function(cell, formatterParams) {
   let btn = '<button>Save</button>';
   return btn;
 };
@@ -66,7 +75,7 @@ const makeTable = (data) => {
         title: 'ButtonHere',
         hozAlign: 'center',
         formatter: saveButton,
-        cellClick: function (e, cell) {
+        cellClick: function(e, cell) {
           // funtion to route api here
           var row = cell.getRow();
           var id = row.getIndex();
@@ -76,7 +85,6 @@ const makeTable = (data) => {
       },
     ],
   });
-  console.log(Tabulator);
 };
 
 getData();
