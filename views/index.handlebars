@@ -1,26 +1,59 @@
-<h1>Create A Purchase Order</h1>
+<nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
 
-<br>
-
-<form class="create-form">
-
-    <div class="form-group">
-        <label for="poNum">PO #:</label>
-        <input type="text" id="poNum" name="poNum">
-
-        <label for="item">Item:</label>
-        <input type="text" id="item" name="item">
-
-        <label for="supplier">Supplier:</label>
-        <input type="text" id="supplier" name="supplier">
-
-        <label for="dueDate">Due Date:</label>
-        <input type="text" id="dueDate" name="dueDate">
-
-        <button type="submit">Submit</button>
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img class="logo" src="./images/intellisup_logo.png" alt="IntelliSup Logo">
+        </a>
     </div>
-</form>
 
-<br>
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="buttons">
+                <a class="button is-primary" href="/logout">
+                    <strong>Logout</strong>
+                </a>
+            </div>
+        </div>
+    </div>
 
-<div id='po-table'></div>
+    </div>
+</nav>
+
+<div>
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column">
+                <h1 class="title is-4 has-text-centered">Welcome <span class="member-name"></span>!</h1>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <h1>Create A Purchase Order</h1>
+
+    <br>
+
+    <form class="create-form">
+
+        <div class="form-group">
+            <label for="poNum">PO #:</label>
+            <input type="text" id="poNum" name="poNum">
+
+            <label for="item">Item:</label>
+            <input type="text" id="item" name="item">
+
+            <label for="supplier">Supplier:</label>
+            <input type="text" id="supplier" name="supplier">
+
+            <label for="dueDate">Due Date:</label>
+            <input type="text" id="dueDate" name="dueDate">
+
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <br>
+
+    <div id='po-table'></div>
+</div>
