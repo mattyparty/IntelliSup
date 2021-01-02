@@ -24,7 +24,8 @@ router
 // otherwise send back an error
 router.route('/signup', isAuthenticated).post((req, res) => {
   console.log('this is the sign up route', req.body);
-  db.user.create(req.body)
+  db.user
+    .create(req.body)
     .then(() => {
       res.redirect(307, '/api/login', isAuthenticated);
     })
@@ -47,10 +48,11 @@ router.route('/user_data', isAuthenticated).get((req, res) => {
 // matt added this API Route
 
 router.route('/members', isAuthenticated).get((req, res) => {
-  db.order.findAll({
-    where: query,
-    include: [db.supplier]
-  })
+  db.order
+    .findAll({
+      where: query,
+      include: [db.supplier]
+    })
     .then((results) => {
       res.json({ results });
     })
@@ -60,11 +62,11 @@ router.route('/members', isAuthenticated).get((req, res) => {
 });
 
 router.route('/members/:id').put((req, res) => {
-  console.log(req.params);
-  db.order.update(req.body, { where: { id: req.params.id } }).then(
-    (updated) => {
+  console.log('THIS IS A CONSOLE LOG', req.body.tracking_number);
+  db.order
+    .update(req.body, { where: { id: req.params.id } })
+    .then((updated) => {
       res.json(updated);
-    }
-  );
+    });
 });
 module.exports = router;
