@@ -10,3 +10,20 @@ form.login {
 .navbar.is-spaced {
     padding: .25rem .5rem;
 }
+
+.field-label {
+  margin-left: .5rem;
+  margin-right: 0;
+  white-space: nowrap;
+}
+
+.field-body {
+  margin-bottom: .25rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.orderBtn {
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
