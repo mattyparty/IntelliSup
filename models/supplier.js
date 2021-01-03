@@ -2,10 +2,10 @@ module.exports = (sequelize, DataTypes) => {
   const Supplier = sequelize.define(
     'supplier',
     {
-      supplier_number: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
+      // supplier_number: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false
+      // },
 
       supplier_name: {
         type: DataTypes.STRING,
@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Supplier.associate = (models) => {
     Supplier.hasMany(models.order);
+    Supplier.hasMany(models.supplier_map_login);
   };
   return Supplier;
 };
