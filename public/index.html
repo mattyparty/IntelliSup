@@ -30,7 +30,7 @@
         <div id="navMenu" class="navbar-menu">
           <div class="navbar-end">
             <a href="#" class="navbar-item is-active">Home</a>
-            <a href="#" class="navbar-item">Members</a>
+            <a href="members.html" class="navbar-item">Members</a>
             <a href="#" class="navbar-item">Log Out</a>
           </div>
         </div>
@@ -41,12 +41,12 @@
         <span class="container">
           <div class="columns is-centered">
             <div column is-5-tablet is-4desktop is-3-widescreen>
-              <form action="POST" class="box">
+              <form method="post" action="/api/signup" id="signup1" class="box">
                 <h3 class="title is-3">Sign Up Form</h3>
                 <div class="field">
                   <label for="" class="label">Email address</label>
                   <div class="control has-icons-left">
-                    <input type="email" id="email-input" placeholder="sampleEmail@email.com" class="input" required>
+                    <input type="email" name="email" id="email-input" placeholder="sampleEmail@email.com" class="input" required>
                     <span class="icon is-small is-left">
                       <i class="fa fa-envelope"></i>
                     </span>
@@ -55,7 +55,7 @@
                 <div class="field">
                   <label for=""class="label">Password</label>
                   <div class="control has-icons-left">
-                    <input type="password" id="password-input" placeholder="**********" class="input" required>
+                    <input name="password" type="password" id="password-input" placeholder="**********" class="input" required>
                     <span class="icon is-small is-left">
                       <i class="fa fa-lock"></i>
                     </span>
@@ -71,12 +71,12 @@
         <span class="container">
           <div class="columns is-centered">
             <div column is-5-tablet is-4desktop is-3-widescreen>
-              <form action="POST" class="box">
+              <form method="post" action="/api/login" class="box">
                 <h3 class="title is-3">Login Form</h3>
                 <div class="field">
                   <label for="" class="label">Email address</label>
                   <div class="control has-icons-left">
-                    <input type="email" id="email-input" placeholder="sampleEmail@email.com" class="input" required>
+                    <input type="email" name="email" id="email-input" placeholder="sampleEmail@email.com" class="input" required>
                     <span class="icon is-small is-left">
                       <i class="fa fa-envelope"></i>
                     </span>
@@ -85,7 +85,7 @@
                 <div class="field">
                   <label for=""class="label">Password</label>
                   <div class="control has-icons-left">
-                    <input type="password" id="password-input" placeholder="**********" class="input" required>
+                    <input type="password" name="password" id="password-input" placeholder="**********" class="input" required>
                     <span class="icon is-small is-left">
                       <i class="fa fa-lock"></i>
                     </span>
@@ -101,5 +101,6 @@
       </div>
     </section>
     <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/signup.js"></script>
   </body>
 </html>

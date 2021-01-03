@@ -12,11 +12,7 @@ router
   .route('/login', isAuthenticated)
   .post(passport.authenticate('local'), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
-    console.log(req.body);
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
+    res.redirect('/members');
   });
 
 // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -27,7 +23,7 @@ router.route('/signup', isAuthenticated).post((req, res) => {
   db.user
     .create(req.body)
     .then(() => {
-      res.redirect(307, '/api/login', isAuthenticated);
+      res.redirect('/members')
     })
     .catch((err) => {
       res.status(401).json(err);
