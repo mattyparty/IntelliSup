@@ -22,7 +22,7 @@ router.route('/signup', isAuthenticated).post((req, res) => {
   db.user
     .create(req.body)
     .then(() => {
-      res.redirect('/members')
+      res.redirect('/members');
     })
     .catch((err) => {
       res.status(401).json(err);
