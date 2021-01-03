@@ -31,7 +31,7 @@ router.get('/logout', (req, res) => {
 //   res.sendFile(path.join(__dirname, '../../public/members.html'));
 // });
 
-router.get('/members', (_req, res) => {
+router.get('/members', isAuthenticated, (_req, res) => {
   res.render('index');
 });
 
