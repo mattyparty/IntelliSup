@@ -52,7 +52,6 @@ router.route('/members', isAuthenticated).get((req, res) => {
     return res.json({});
   }
   const user = req.user.email;
-
   db.order
     .findAll({
       include: [
@@ -70,10 +69,27 @@ router.route('/members', isAuthenticated).get((req, res) => {
       console.log(err);
     });
 });
-
-router.route('/members/:id').put((req, res) => {
+// route for updating a record
+router.route('/members/:id', isAuthenticated).put((req, res) => {
   db.order
     .update(req.body, { where: { id: req.params.id } })
+    .then((updated) => {
+      res.json(updated);
+    });
+});
+// route for adding a record
+router.route('/orders', isAuthenticated).post((req, res) => {
+  console.log(req.body);
+  db.order
+    .create({
+      item: req.body.item,
+      po_received: req.body.poReceived,
+      po_due_date: req.body.dueDate,
+      supplier_number: req.body.supplier,
+      po_number: req.body.poNum,
+      supplier_id: req.body.supplierId,
+      supplier_map_login_id: req.body.supplierMapId
+    })
     .then((updated) => {
       res.json(updated);
     });

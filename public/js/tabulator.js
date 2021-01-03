@@ -31,56 +31,64 @@ const updateData = (data, id) => {
     window.location.href = '/members';
   });
 };
+
+// add orders ajax call
+const addData = (data) => {
+  let supplierInput = $('#supplier').val();
+  let dueDateInput = $('#dueDate').val();
+  let itemInput = $('#item').val();
+  let poNumInput = $('#poNum').val();
+  $.ajax({
+    method: 'POST',
+    url: '/api/orders',
+    data: {
+      supplier: supplierInput,
+      dueDate: dueDateInput,
+      item: itemInput,
+      poNum: poNumInput,
+      poReceived: false,
+      supplierId: supplierInput,
+      supplierMapId: supplierInput
+    }
+  }).then(() => {
+    window.location.href = '/members';
+  });
+};
 const saveButton = function(cell, formatterParams) {
   let btn = '<button>Save</button>';
   return btn;
 };
 
+$('.create-form').on('submit', (event) => {
+  event.preventDefault();
+  addData();
+});
+
 // date editor funciton
 
 var dateEditor = function(cell, onRendered, success, cancel, editorParams) {
-  //cell - the cell component for the editable cell
-  //onRendered - function to call when the editor has been rendered
-  //success - function to call to pass the successfuly updated value to Tabulator
-  //cancel - function to call to abort the edit and return to a normal cell
-  //editorParams - params object passed into the editorParams column definition property
-
-  //create and style editor
   var editor = document.createElement('input');
-
   editor.setAttribute('type', 'date');
-
-  //create and style input
   editor.style.padding = '3px';
   editor.style.width = '100%';
   editor.style.boxSizing = 'border-box';
-
-  //Set value of editor to the current value of the cell
   editor.value = moment(cell.getValue(), 'MM/DD/YYYY').format('YYYY-MM-DD');
-
-  //set focus on the select box when the editor is selected (timeout allows for editor to be added to DOM)
   onRendered(function() {
     editor.focus();
     editor.style.css = '100%';
   });
-
-  //when the value has been set, trigger the cell to update
   function successFunc() {
     success(moment(editor.value, 'YYYY-MM-DD').format('MM/DD/YYYY'));
   }
-
   editor.addEventListener('change', successFunc);
   editor.addEventListener('blur', successFunc);
-
-  //return the editor element
   return editor;
 };
 
 const makeTable = (data) => {
   new Tabulator('#po-table', {
-    // height: 205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
-    data: data, // assign data to table
-    layout: 'fitColumns', // fit columns to width of table (optional)
+    data: data,
+    layout: 'fitColumns',
     columns: [
       // Define Table Columns
       {
@@ -113,7 +121,7 @@ const makeTable = (data) => {
         editor: 'textarea',
         editorParams: {
           elementAttributes: {
-            maxlength: '100' //set the maximum character length of the textarea element to 10 characters
+            maxlength: '100'
           }
         }
       },
