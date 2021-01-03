@@ -55,7 +55,7 @@ const addData = (data) => {
   });
 };
 const saveButton = function(cell, formatterParams) {
-  let btn = '<button>Save</button>';
+  let btn = ' <button class="button is-info">Update</button>';
   return btn;
 };
 
@@ -87,10 +87,19 @@ var dateEditor = function(cell, onRendered, success, cancel, editorParams) {
 
 const makeTable = (data) => {
   new Tabulator('#po-table', {
+    // Define Table Columns
+    // pagination: 'local',
     data: data,
     layout: 'fitColumns',
+    pagination: 'local',
+    paginationSize: 5,
     columns: [
       // Define Table Columns
+      {
+        title: 'Po Number',
+        field: 'po_number',
+        hozAlign: 'center'
+      },
       {
         title: 'supplier name',
         field: 'supplier.supplier_name',
@@ -98,11 +107,6 @@ const makeTable = (data) => {
       },
       { title: 'Item', field: 'item' },
 
-      {
-        title: 'Po Number',
-        field: 'po_number',
-        hozAlign: 'center'
-      },
       {
         title: 'Po Due Date',
         field: 'po_due_date',
@@ -126,7 +130,6 @@ const makeTable = (data) => {
         }
       },
       {
-        title: 'ButtonHere',
         hozAlign: 'center',
         formatter: saveButton,
         cellClick: function(e, cell) {
