@@ -94,4 +94,23 @@ router.route('/orders', isAuthenticated).post((req, res) => {
       res.json(updated);
     });
 });
+
+// route for addmin access
+
+router.route('/admin', isAuthenticated).get((req, res) => {
+  if (!req.user) {
+    // The user is not logged in, send back an empty object
+    return res.json({});
+  }
+
+  db.suppliermaplogin
+    .findAll({})
+    .then((results) => {
+      res.render('admin', results);
+      console.log(results);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 module.exports = router;

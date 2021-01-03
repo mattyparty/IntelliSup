@@ -40,4 +40,8 @@ router.get('/members', isAuthenticated, (_req, res) => {
   res.render('index');
 });
 
+router.get('/admin', isAuthenticated, (_req, res) => {
+  res.render('admin');
+});
+
 module.exports = router;
