@@ -5,6 +5,7 @@ const getData = () => {
     //console.log(data);
   });
 };
+
 // Update tracking number ajax call
 const updateData = (data, id) => {
   console.log(data);
@@ -54,8 +55,9 @@ const addData = (data) => {
     window.location.href = '/account';
   });
 };
+
 const saveButton = function (cell, formatterParams) {
-  let btn = ' <button class="button is-primary">Update</button>';
+  let btn = ' <button class="button is-primary is-small">Update</button>';
   return btn;
 };
 
@@ -65,23 +67,30 @@ $('#poForm').on('submit', (event) => {
 });
 
 // Date editor function
-
 var dateEditor = function (cell, onRendered, success, cancel, editorParams) {
+
   var editor = document.createElement('input');
+
   editor.setAttribute('type', 'date');
+
   editor.style.padding = '3px';
   editor.style.width = '100%';
   editor.style.boxSizing = 'border-box';
+
   editor.value = moment(cell.getValue(), 'MM/DD/YYYY').format('YYYY-MM-DD');
+
   onRendered(function () {
     editor.focus();
     editor.style.css = '100%';
   });
+
   function successFunc() {
     success(moment(editor.value, 'YYYY-MM-DD').format('MM/DD/YYYY'));
   }
+
   editor.addEventListener('change', successFunc);
   editor.addEventListener('blur', successFunc);
+
   return editor;
 };
 
@@ -112,7 +121,11 @@ const makeTable = (data) => {
       {
         title: 'Due Date',
         field: 'po_due_date',
-        hozAlign: 'center'
+        hozAlign: 'center',
+        formatter: 'datetime',
+        formatterParams: {
+          outputFormat: 'MM/DD/YYYY'
+        }
       },
       {
         title: 'Est. Ship Date',
