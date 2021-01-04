@@ -59,7 +59,7 @@ const saveButton = function(cell, formatterParams) {
   return btn;
 };
 
-$('.create-form').on('submit', (event) => {
+$('#poForm').on('submit', (event) => {
   event.preventDefault();
   addData();
 });
