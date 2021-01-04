@@ -5,21 +5,21 @@ const getData = () => {
     //console.log(data);
   });
 };
-// update tracking number ajax call
+// Update tracking number ajax call
 const updateData = (data, id) => {
   console.log(data);
   $.ajax({
     method: 'PUT',
     url: '/api/account/' + id,
     data: {
-      tracking_number: function() {
+      tracking_number: function () {
         for (var i = 0; i < data.length; i++) {
           if (data[i].id === id) {
             return data[i].tracking_number;
           }
         }
       },
-      est_ship_date: function() {
+      est_ship_date: function () {
         for (var i = 0; i < data.length; i++) {
           if (data[i].id === id) {
             return data[i].est_ship_date;
@@ -32,7 +32,7 @@ const updateData = (data, id) => {
   });
 };
 
-// add orders ajax call
+// Add orders ajax call
 const addData = (data) => {
   let supplierInput = $('#supplier').val();
   let dueDateInput = $('#dueDate').val();
@@ -54,8 +54,8 @@ const addData = (data) => {
     window.location.href = '/account';
   });
 };
-const saveButton = function(cell, formatterParams) {
-  let btn = ' <button class="button is-info">Update</button>';
+const saveButton = function (cell, formatterParams) {
+  let btn = ' <button class="button is-primary">Update</button>';
   return btn;
 };
 
@@ -64,16 +64,16 @@ $('#poForm').on('submit', (event) => {
   addData();
 });
 
-// date editor funciton
+// Date editor function
 
-var dateEditor = function(cell, onRendered, success, cancel, editorParams) {
+var dateEditor = function (cell, onRendered, success, cancel, editorParams) {
   var editor = document.createElement('input');
   editor.setAttribute('type', 'date');
   editor.style.padding = '3px';
   editor.style.width = '100%';
   editor.style.boxSizing = 'border-box';
   editor.value = moment(cell.getValue(), 'MM/DD/YYYY').format('YYYY-MM-DD');
-  onRendered(function() {
+  onRendered(function () {
     editor.focus();
     editor.style.css = '100%';
   });
@@ -88,7 +88,7 @@ var dateEditor = function(cell, onRendered, success, cancel, editorParams) {
 const makeTable = (data) => {
   new Tabulator('#po-table', {
     // Define Table Columns
-    // pagination: 'local',
+    // Pagination: 'local',
     data: data,
     layout: 'fitColumns',
     pagination: 'local',
@@ -96,30 +96,32 @@ const makeTable = (data) => {
     columns: [
       // Define Table Columns
       {
-        title: 'Po Number',
+        title: 'PO #',
         field: 'po_number',
         hozAlign: 'center'
       },
       {
-        title: 'supplier name',
+        title: 'Item',
+        field: 'item'
+      },
+      {
+        title: 'Supplier',
         field: 'supplier.supplier_name',
         hozAlign: 'center'
       },
-      { title: 'Item', field: 'item' },
-
       {
-        title: 'Po Due Date',
+        title: 'Due Date',
         field: 'po_due_date',
         hozAlign: 'center'
       },
       {
-        title: 'Estimated Ship Date',
+        title: 'Est. Ship Date',
         field: 'est_ship_date',
         hozAlign: 'center',
         editor: dateEditor
       },
       {
-        title: 'Tracking Number',
+        title: 'Tracking #',
         field: 'tracking_number',
         hozAlign: 'center',
         editor: 'textarea',
@@ -132,8 +134,8 @@ const makeTable = (data) => {
       {
         hozAlign: 'center',
         formatter: saveButton,
-        cellClick: function(e, cell) {
-          // funtion to route api here
+        cellClick: function (e, cell) {
+          // Function to route api here
           var row = cell.getRow();
           var id = row.getIndex();
           updateData(data, id);
