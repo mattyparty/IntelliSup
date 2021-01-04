@@ -55,7 +55,7 @@ const addData = (data) => {
   });
 };
 const saveButton = function (cell, formatterParams) {
-  let btn = ' <button class="button is-info">Update</button>';
+  let btn = ' <button class="button is-primary">Update</button>';
   return btn;
 };
 
@@ -96,30 +96,32 @@ const makeTable = (data) => {
     columns: [
       // Define Table Columns
       {
-        title: 'Po Number',
+        title: 'PO #',
         field: 'po_number',
         hozAlign: 'center'
       },
       {
-        title: 'supplier name',
+        title: 'Item',
+        field: 'item'
+      },
+      {
+        title: 'Supplier',
         field: 'supplier.supplier_name',
         hozAlign: 'center'
       },
-      { title: 'Item', field: 'item' },
-
       {
-        title: 'Po Due Date',
+        title: 'Due Date',
         field: 'po_due_date',
         hozAlign: 'center'
       },
       {
-        title: 'Estimated Ship Date',
+        title: 'Est. Ship Date',
         field: 'est_ship_date',
         hozAlign: 'center',
         editor: dateEditor
       },
       {
-        title: 'Tracking Number',
+        title: 'Tracking #',
         field: 'tracking_number',
         hozAlign: 'center',
         editor: 'textarea',
