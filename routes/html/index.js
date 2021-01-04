@@ -5,12 +5,7 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-  // If the user already has an account send them to the members page
-  if (req.user) {
-    res.redirect('/members');
-  }
-
-  res.sendFile(path.join(__dirname, '../../public/signup.html'));
+  res.sendFile(path.join(__dirname, '../../public/index.html'));
 });
 
 router.get('/login', (req, res) => {

@@ -8,7 +8,7 @@
     "start": "node server.js",
     "lint": "semistandard --verbose | snazzy",
     "format": "prettier-semi --write '**/*.js'",
-    "watch": "nodemon server.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "install": "^0.13.0",
     "moment": "^2.29.1",
     "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "npm": "^6.14.10",
     "passport": "^0.4.1",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "eslint": "^7.16.0",
+    "nodemon": "^2.0.6",
     "prettier-semi-cli": "^1.0.0",
     "semistandard": "^16.0.0",
     "snazzy": "^9.0.0"
@@ -39,7 +41,10 @@
   "semistandard": {
     "ignore": [
       "/public/js/tabulator.js",
-      "/public/js/tabulator.min.js"
+      "/public/js/tabulator.min.js",
+      "/public/js/login.js",
+      "/public/js/signup.js",
+      "/public/js/members.js"
     ]
   },
   "repository": {
