@@ -5,13 +5,13 @@ const passport = require('../../config/passport');
 const isAuthenticated = require('../../config/middleware/isAuthenticated');
 // const supplier = require('../../models/supplier');
 // Using the passport.authenticate middleware with our local strategy.
-// If the user has valid login credentials, send them to the members page.
+// If the user has valid login credentials, send them to the account page.
 // Otherwise the user will be sent an error
 router
   .route('/login', isAuthenticated)
   .post(passport.authenticate('local'), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
-    res.redirect('/members');
+    res.redirect('/account');
   });
 
 // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -22,7 +22,7 @@ router.route('/signup', isAuthenticated).post((req, res) => {
   db.user
     .create(req.body)
     .then(() => {
-      res.redirect('/members');
+      res.redirect('/account');
     })
     .catch((err) => {
       res.status(401).json(err);
@@ -42,7 +42,7 @@ router.route('/user_data', isAuthenticated).get((req, res) => {
 });
 // matt added this API Route
 
-router.route('/members', isAuthenticated).get((req, res) => {
+router.route('/account', isAuthenticated).get((req, res) => {
   if (!req.user) {
     // The user is not logged in, send back an empty object
     return res.json({});
@@ -66,7 +66,7 @@ router.route('/members', isAuthenticated).get((req, res) => {
     });
 });
 // route for updating a record
-router.route('/members/:id', isAuthenticated).put((req, res) => {
+router.route('/account/:id', isAuthenticated).put((req, res) => {
   db.order
     .update(req.body, { where: { id: req.params.id } })
     .then((updated) => {
