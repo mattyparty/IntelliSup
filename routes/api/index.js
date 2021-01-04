@@ -83,27 +83,27 @@ router.route('/orders', isAuthenticated).post((req, res) => {
       po_due_date: req.body.dueDate,
       supplier_number: req.body.supplier,
       po_number: req.body.poNum,
-      supplier_id: req.body.supplierId,
-      supplier_map_login_id: req.body.supplierMapId
+      // supplier_id: req.body.supplierId,
+      supplier_map_login_id: '1'
+      // supplier_map_login_id: req.body.supplierMapId
     })
     .then((updated) => {
       res.json(updated);
     });
 });
 
-// route for addmin access
+// route for admin access
 
 router.route('/admin', isAuthenticated).get((req, res) => {
   if (!req.user) {
     // The user is not logged in, send back an empty object
     return res.json({});
   }
-
-  db.suppliermaplogin
+  db.supplier_map_login
     .findAll({})
     .then((results) => {
-      res.render('admin', results);
-      console.log(results);
+      res.json({ results });
+      console.log({ results });
     })
     .catch((err) => {
       console.log(err);

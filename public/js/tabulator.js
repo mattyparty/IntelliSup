@@ -12,14 +12,14 @@ const updateData = (data, id) => {
     method: 'PUT',
     url: '/api/account/' + id,
     data: {
-      tracking_number: function () {
+      tracking_number: function() {
         for (var i = 0; i < data.length; i++) {
           if (data[i].id === id) {
             return data[i].tracking_number;
           }
         }
       },
-      est_ship_date: function () {
+      est_ship_date: function() {
         for (var i = 0; i < data.length; i++) {
           if (data[i].id === id) {
             return data[i].est_ship_date;
@@ -54,7 +54,7 @@ const addData = (data) => {
     window.location.href = '/account';
   });
 };
-const saveButton = function (cell, formatterParams) {
+const saveButton = function(cell, formatterParams) {
   let btn = ' <button class="button is-info">Update</button>';
   return btn;
 };
@@ -66,14 +66,14 @@ $('#poForm').on('submit', (event) => {
 
 // date editor funciton
 
-var dateEditor = function (cell, onRendered, success, cancel, editorParams) {
+var dateEditor = function(cell, onRendered, success, cancel, editorParams) {
   var editor = document.createElement('input');
   editor.setAttribute('type', 'date');
   editor.style.padding = '3px';
   editor.style.width = '100%';
   editor.style.boxSizing = 'border-box';
   editor.value = moment(cell.getValue(), 'MM/DD/YYYY').format('YYYY-MM-DD');
-  onRendered(function () {
+  onRendered(function() {
     editor.focus();
     editor.style.css = '100%';
   });
@@ -132,7 +132,7 @@ const makeTable = (data) => {
       {
         hozAlign: 'center',
         formatter: saveButton,
-        cellClick: function (e, cell) {
+        cellClick: function(e, cell) {
           // funtion to route api here
           var row = cell.getRow();
           var id = row.getIndex();
