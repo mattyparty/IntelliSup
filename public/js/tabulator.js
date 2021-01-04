@@ -5,7 +5,7 @@ const getData = () => {
     //console.log(data);
   });
 };
-// update tracking number ajax call
+// Update tracking number ajax call
 const updateData = (data, id) => {
   console.log(data);
   $.ajax({
@@ -32,7 +32,7 @@ const updateData = (data, id) => {
   });
 };
 
-// add orders ajax call
+// Add orders ajax call
 const addData = (data) => {
   let supplierInput = $('#supplier').val();
   let dueDateInput = $('#dueDate').val();
@@ -64,7 +64,7 @@ $('#poForm').on('submit', (event) => {
   addData();
 });
 
-// date editor funciton
+// Date editor function
 
 var dateEditor = function (cell, onRendered, success, cancel, editorParams) {
   var editor = document.createElement('input');
@@ -88,7 +88,7 @@ var dateEditor = function (cell, onRendered, success, cancel, editorParams) {
 const makeTable = (data) => {
   new Tabulator('#po-table', {
     // Define Table Columns
-    // pagination: 'local',
+    // Pagination: 'local',
     data: data,
     layout: 'fitColumns',
     pagination: 'local',
@@ -135,7 +135,7 @@ const makeTable = (data) => {
         hozAlign: 'center',
         formatter: saveButton,
         cellClick: function (e, cell) {
-          // funtion to route api here
+          // Function to route api here
           var row = cell.getRow();
           var id = row.getIndex();
           updateData(data, id);
