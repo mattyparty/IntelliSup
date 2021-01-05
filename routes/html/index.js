@@ -1,13 +1,16 @@
 // Requiring path to so we can use relative routes to our HTML files
 const path = require('path');
+
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require('../../config/middleware/isAuthenticated');
 const router = require('express').Router();
 
+// Route to render home page
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/index.html'));
+  res.render('index');
 });
 
+// Route to render login?
 router.get('/login', (req, res) => {
   // If the user already has an account send them to the account page
   if (req.user) {
@@ -28,7 +31,7 @@ router.get('/logout', (req, res) => {
 // /////////////////////////////////////////////////////////////////////////
 
 router.get('/account', isAuthenticated, (_req, res) => {
-  res.render('index');
+  res.render('account');
 });
 
 router.get('/admin', isAuthenticated, (_req, res) => {
