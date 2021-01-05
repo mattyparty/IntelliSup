@@ -76,6 +76,7 @@ router.route('/account/:id', isAuthenticated).put((req, res) => {
 // route for adding a record
 router.route('/orders', isAuthenticated).post((req, res) => {
   console.log(req.body);
+  // Right now this function ONLY WORKS if supplier_map_login has the user listed
   db.order
     .create({
       item: req.body.item,
@@ -83,10 +84,10 @@ router.route('/orders', isAuthenticated).post((req, res) => {
       po_due_date: req.body.dueDate,
       supplier_number: req.body.supplier,
       po_number: req.body.poNum,
-      // supplier_id: req.body.supplierId,
-      supplier_map_login_id: '1'
-      // supplier_map_login_id: req.body.supplierMapId
+      supplier_id: req.body.supplierId,
+      supplier_map_login_id: req.body.supplierMapId
     })
+
     .then((updated) => {
       res.json(updated);
     });
