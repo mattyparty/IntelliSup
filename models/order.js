@@ -39,8 +39,11 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Order.associate = (models) => {
-    Order.belongsTo(models.supplier);
-    Order.belongsTo(models.supplier_map_login);
+    // Had to update this in order to get the FK to update
+    Order.belongsTo(models.supplier, { foreignKey: 'supplier_id' });
+    Order.belongsTo(models.supplier_map_login, {
+      foreignKey: 'supplier_map_login_id'
+    });
   };
 
   return Order;
