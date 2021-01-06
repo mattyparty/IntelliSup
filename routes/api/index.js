@@ -73,6 +73,7 @@ router.route('/account', isAuthenticated).get((req, res) => {
       console.log(err);
     });
 });
+
 // route for updating a record
 router.route('/account/:id', isAuthenticated).put((req, res) => {
   db.order
@@ -81,6 +82,7 @@ router.route('/account/:id', isAuthenticated).put((req, res) => {
       res.json(updated);
     });
 });
+
 // route for adding a record
 router.route('/orders', isAuthenticated).post((req, res) => {
   // Right now this function ONLY WORKS if supplier_map_login has the user listed
