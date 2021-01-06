@@ -66,7 +66,7 @@ router.route('/account', isAuthenticated).get((req, res) => {
           supplierName: results[0].supplier.supplier_name
         };
       });
-      console.log(dataArr);
+
       res.json({ results: dataArr });
     })
     .catch((err) => {
