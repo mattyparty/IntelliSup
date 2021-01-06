@@ -18,7 +18,9 @@ module.exports = (sequelize, DataTypes) => {
 
   Supplier.associate = (models) => {
     Supplier.hasMany(models.order);
-    Supplier.hasMany(models.supplier_map_login);
+    Supplier.hasMany(models.supplier_map_login, {
+      foreignKey: 'supplier_id'
+    });
   };
   return Supplier;
 };
