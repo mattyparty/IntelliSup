@@ -48,18 +48,26 @@ router.route('/account', isAuthenticated).get((req, res) => {
     return res.json({});
   }
   const user = req.user.email;
-  db.order
+  db.supplier_map_login
     .findAll({
+      where: { login_email: user },
       include: [
         {
-          model: db.supplier_map_login,
-          where: { login_email: user }
+          model: db.order
         },
         { model: db.supplier }
       ]
     })
     .then((results) => {
-      res.json({ results });
+      // console.log(results);
+      const dataArr = results[0].orders.map((obj) => {
+        return {
+          ...obj.dataValues,
+          supplierName: results[0].supplier.supplier_name
+        };
+      });
+      console.log(dataArr);
+      res.json({ results: dataArr });
     })
     .catch((err) => {
       console.log(err);
@@ -75,7 +83,6 @@ router.route('/account/:id', isAuthenticated).put((req, res) => {
 });
 // route for adding a record
 router.route('/orders', isAuthenticated).post((req, res) => {
-  console.log(req.body);
   // Right now this function ONLY WORKS if supplier_map_login has the user listed
   db.order
     .create({
@@ -85,7 +92,7 @@ router.route('/orders', isAuthenticated).post((req, res) => {
       supplier_number: req.body.supplier,
       po_number: req.body.poNum,
       supplier_id: req.body.supplierId,
-      supplier_map_login_id: req.body.supplierMapId
+      supplier_map_login_id: req.body.supplier
     })
 
     .then((updated) => {
@@ -113,7 +120,6 @@ router.route('/admin', isAuthenticated).get((req, res) => {
 module.exports = router;
 
 router.route('/admin/:id', isAuthenticated).put((req, res) => {
-  console.log(req.body);
   db.supplier_map_login
     .update(req.body, { where: { id: req.params.id } })
     .then((updated) => {
