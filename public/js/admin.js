@@ -5,6 +5,30 @@ const getAdminData = () => {
     //console.log(data);
   });
 };
+const updateSupplierID = (data, id) => {
+  $.ajax({
+    method: 'PUT',
+    url: '/api/admin/' + id,
+    data: {
+      supplierId: function() {
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].id === id) {
+            return data[i].supplierId;
+          }
+        }
+      },
+      supplier_number: function() {
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].id === id) {
+            return data[i].supplierId;
+          }
+        }
+      }
+    }
+  }).then(() => {
+    window.location.href = '/admin';
+  });
+};
 
 const makeAdminTable = (data) => {
   new Tabulator('#admin-table', {
@@ -24,7 +48,13 @@ const makeAdminTable = (data) => {
       {
         title: 'Supplier ID',
         field: 'supplierId',
-        hozAlign: 'center'
+        hozAlign: 'center',
+        editor: 'textarea',
+        editorParams: {
+          elementAttributes: {
+            maxlength: '100'
+          }
+        }
       },
 
       {
@@ -32,9 +62,10 @@ const makeAdminTable = (data) => {
         formatter: saveButton,
         cellClick: function(e, cell) {
           // funtion to route api here
+          e.preventDefault();
           var row = cell.getRow();
           var id = row.getIndex();
-          updateData(data, id);
+          updateSupplierID(data, id);
           console.log(id);
         }
       }

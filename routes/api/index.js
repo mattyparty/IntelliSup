@@ -111,3 +111,12 @@ router.route('/admin', isAuthenticated).get((req, res) => {
     });
 });
 module.exports = router;
+
+router.route('/admin/:id', isAuthenticated).put((req, res) => {
+  console.log(req.body);
+  db.supplier_map_login
+    .update(req.body, { where: { id: req.params.id } })
+    .then((updated) => {
+      res.json(updated);
+    });
+});
