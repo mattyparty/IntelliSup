@@ -1,13 +1,3 @@
-form.signup,
-form.login {
-  margin-top: 50px;
-}
-
-body.has-navbar-fixed-top, 
-html.has-navbar-fixed-top {
-  padding-top: 5rem;
-}
-
 .navbar-item img {
     max-height: 80px;
 }
@@ -35,6 +25,8 @@ html.has-navbar-fixed-top {
 
 .center {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 65%;
 }
 
@@ -46,6 +38,96 @@ html.has-navbar-fixed-top {
   margin-bottom: .75rem;
 }
 
-.section {
-    padding: 2rem 1.5rem;
+.nav-right {
+  float:right;
+}
+
+.navbar-menu {
+  width: fit-content;
+  background-color:#fff;
+  float: right;
+  border-radius: 6px;
+  margin-top: -2.5rem;
+}
+
+.navbar {
+  background-color: transparent;
+}
+
+.navbar-start {
+  margin-right: none;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.is-active {
+  display: block;
+}
+
+.banner-logo {
+  width: 80%;
+  max-width: 450px;
+  height: auto;
+  padding: .5rem;
+}
+
+.level-item {
+  display: block;
+}
+
+.tabs li.is-active a {
+    border-bottom-color: #56C596;
+    color: #56C596;
+}
+
+.has-background-primary,
+.is-primary {
+  background-color: #56C596!important;
+}
+
+.has-background-secondary,
+.is-secondary {
+  background-color: #205072!important;
+}
+
+.test-text {
+  padding-bottom: 1rem;
+  color: #fff;
+}
+
+.test-text-2 {
+  color: #fff;
+}
+
+.price-text {
+  padding-bottom: 1rem;
+}
+
+.footer {
+  background-color: #373737;
+  width: 100%;
+}
+
+.footer-sticky {
+  bottom: 0;
+  position: absolute;
+}
+
+.footer-text {
+  color: #fff;
+  font-weight: 700;
+}
+
+.quote {
+  font-style: italic;
+}
+
+.quote-name {
+  margin-bottom: 0rem!important;
+}
+
+.contact-link {
+  color: #56C596;
 }

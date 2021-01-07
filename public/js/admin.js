@@ -1,8 +1,6 @@
 const getAdminData = () => {
   $.get('/api/admin').then((response) => {
-    console.log(response.results);
     makeAdminTable(response.results);
-    //console.log(data);
   });
 };
 const updateSupplierID = (data, id) => {
@@ -10,14 +8,14 @@ const updateSupplierID = (data, id) => {
     method: 'PUT',
     url: '/api/admin/' + id,
     data: {
-      supplierId: function() {
+      supplierId: function () {
         for (var i = 0; i < data.length; i++) {
           if (data[i].id === id) {
             return data[i].supplierId;
           }
         }
       },
-      supplier_number: function() {
+      supplier_number: function () {
         for (var i = 0; i < data.length; i++) {
           if (data[i].id === id) {
             return data[i].supplierId;
@@ -86,13 +84,12 @@ const makeAdminTable = (data) => {
       {
         hozAlign: 'center',
         formatter: saveButton,
-        cellClick: function(e, cell) {
+        cellClick: function (e, cell) {
           // funtion to route api here
           e.preventDefault();
           var row = cell.getRow();
           var id = row.getIndex();
           updateSupplierID(data, id);
-          console.log(id);
         }
       }
     ]
