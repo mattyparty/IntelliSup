@@ -1,19 +1,22 @@
-{{!-- Navbar --}}
 {{> navbar }}
 
-{{!-- Welcome bar --}}
-<section class="section">
-    <div class="container">
-        <div class="columns is-centered">
-            <div class="column">
-                <h1 class="title is-4 has-text-centered">Welcome <span class="member-name"></span>!</h1>
+<main>
+    <div class="hero-body">
+        {{!-- Welcome bar --}}
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column">
+                    <h1 class="title is-2 has-text-centered">Welcome <span class="member-name"></span>!</h1>
+                </div>
             </div>
         </div>
+
+        <section class="section">
+            <div class="container box">
+                <div id='po-table' class="is-striped is-bordered is-narrow is-hoverable"></div>
+            </div>
+        </section>
     </div>
-</section>
+</main>
 
-<div class="container box">
-    <div id='po-table' class="is-striped is-bordered is-narrow is-hoverable"></div>
-</div>
-
-</div>
+{{> footer}}

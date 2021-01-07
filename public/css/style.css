@@ -38,10 +38,6 @@
   margin-bottom: .75rem;
 }
 
-.section {
-    padding: 1rem 1.5rem;
-}
-
 .nav-right {
   float:right;
 }
@@ -72,7 +68,7 @@
 
 .banner-logo {
   width: 80%;
-  max-width: 500px;
+  max-width: 450px;
   height: auto;
   padding: .5rem;
 }
@@ -89,4 +85,49 @@
 .has-background-primary,
 .is-primary {
   background-color: #56C596!important;
+}
+
+.has-background-secondary,
+.is-secondary {
+  background-color: #205072!important;
+}
+
+.test-text {
+  padding-bottom: 1rem;
+  color: #fff;
+}
+
+.test-text-2 {
+  color: #fff;
+}
+
+.price-text {
+  padding-bottom: 1rem;
+}
+
+.footer {
+  background-color: #373737;
+  width: 100%;
+}
+
+.footer-sticky {
+  bottom: 0;
+  position: absolute;
+}
+
+.footer-text {
+  color: #fff;
+  font-weight: 700;
+}
+
+.quote {
+  font-style: italic;
+}
+
+.quote-name {
+  margin-bottom: 0rem!important;
+}
+
+.contact-link {
+  color: #56C596;
 }
