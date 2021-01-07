@@ -68,7 +68,7 @@
 
 .banner-logo {
   width: 80%;
-  max-width: 500px;
+  max-width: 450px;
   height: auto;
   padding: .5rem;
 }
@@ -101,8 +101,12 @@
   color: #fff;
 }
 
+.price-text {
+  padding-bottom: 1rem;
+}
+
 .footer {
-  background-color: #5d5d5d;
+  background-color: #373737;
   width: 100%;
 }
 
