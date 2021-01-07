@@ -1,3 +1,14 @@
+{{#if home}}
+<nav class="level">
+    <p class="level-item has-text-centered">
+        <a class="level-item" href="/">
+            <img class="banner-logo" src="./images/intellisup_logo.png" alt="IntelliSup Logo" height="80px">
+        </a>
+    </p>
+</nav>
+
+{{else}}
+
 <nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
 
@@ -5,7 +16,6 @@
             <img class="logo" src="./images/intellisup_logo.png" alt="IntelliSup Logo">
         </a>
 
-        {{#unless home}}
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -15,7 +25,7 @@
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end nav-right">
+        <div class="navbar-end">
 
             {{#if account}}
             <div class="navbar-item">
@@ -44,10 +54,9 @@
                     </a>
                 </div>
             </div>
+
         </div>
     </div>
 
-    {{/unless}}
-
-    </div>
 </nav>
+{{/if}}
