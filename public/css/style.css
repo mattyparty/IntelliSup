@@ -38,10 +38,6 @@
   margin-bottom: .75rem;
 }
 
-.section {
-    padding: 1rem 1.5rem;
-}
-
 .nav-right {
   float:right;
 }
@@ -89,4 +85,33 @@
 .has-background-primary,
 .is-primary {
   background-color: #56C596!important;
+}
+
+.has-background-secondary,
+.is-secondary {
+  background-color: #205072!important;
+}
+
+.test-text {
+  padding-bottom: 1rem;
+  color: #fff;
+}
+
+.test-text-2 {
+  color: #fff;
+}
+
+.footer {
+  background-color: #5d5d5d;
+  width: 100%;
+}
+
+.footer-sticky {
+  bottom: 0;
+  position: absolute;
+}
+
+.footer-text {
+  color: #fff;
+  font-weight: 700;
 }
