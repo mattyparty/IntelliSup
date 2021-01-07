@@ -131,3 +131,11 @@
 .contact-link {
   color: #56C596;
 }
+
+.is-primary-text {
+  color: #56C596!important;
+}
+
+.is-secondary-text {
+  color: #205072!important;
+}
