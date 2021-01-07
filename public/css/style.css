@@ -39,7 +39,7 @@
 }
 
 .section {
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
 }
 
 .nav-right {
@@ -71,8 +71,22 @@
 }
 
 .banner-logo {
-  width: 100%;
+  width: 80%;
   max-width: 500px;
   height: auto;
   padding: .5rem;
+}
+
+.level-item {
+  display: block;
+}
+
+.tabs li.is-active a {
+    border-bottom-color: #56C596;
+    color: #56C596;
+}
+
+.has-background-primary,
+.is-primary {
+  background-color: #56C596!important;
 }
