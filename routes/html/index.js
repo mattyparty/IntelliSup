@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
           title: 'SCIENTIST',
           quote: 'ME NEED FOOD AND WATER TO SURVIVE! MANY TIME I CAUSED AGGRAVATION FROM SUPPLIER WHO NOT MEET MY REQUIREMENT! INTELLISUP HELP ME AND FILL MY STOMACH ARRRR!!!'
         }
-      ],
+      ]
     }
   );
 });
