@@ -1,44 +1,53 @@
-<nav class="navbar is-spaced is-fixed-top" role="navigation" aria-label="main navigation">
-
+<nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
+
         <a class="navbar-item" href="/">
             <img class="logo" src="./images/intellisup_logo.png" alt="IntelliSup Logo">
         </a>
+
+        {{#unless home}}
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+
     </div>
 
-    {{#unless home}}
-    <div class="navbar-end"></div>
-    {{#if account}}
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end nav-right">
 
-    <div class="navbar-item">
-        <div class="buttons">
-            <a class="button is-primary" href="/admin">
-                <strong>Admin</strong>
-            </a>
+            {{#if account}}
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary" href="/admin">
+                        <strong>Admin</strong>
+                    </a>
+                </div>
+            </div>
+
+            {{else if admin}}
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary" href="/account">
+                        <strong>Account</strong>
+                    </a>
+                </div>
+            </div>
+
+            {{/if}}
+
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary" href="/logout">
+                        <strong>Logout</strong>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
-    {{else if admin}}
-
-    <div class="navbar-item">
-        <div class="buttons">
-            <a class="button is-primary" href="/account">
-                <strong>Account</strong>
-            </a>
-        </div>
-    </div>
-
-    {{/if}}
-
-
-    <div class="navbar-item">
-        <div class="buttons">
-            <a class="button is-primary" href="/logout">
-                <strong>Logout</strong>
-            </a>
-        </div>
-    </div>
-    </div>
     {{/unless}}
 
+    </div>
 </nav>

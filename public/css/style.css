@@ -49,3 +49,19 @@ html.has-navbar-fixed-top {
 .section {
     padding: 2rem 1.5rem;
 }
+
+.nav-right {
+  float:right;
+}
+
+.navbar-menu {
+  width: fit-content;
+  background-color:#fff;
+  float: right;
+  border-radius: 6px;
+  margin-top: -2.5rem;
+}
+
+.navbar {
+  background-color: transparent;
+}
