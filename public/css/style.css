@@ -119,3 +119,11 @@
   color: #fff;
   font-weight: 700;
 }
+
+.quote {
+  font-style: italic;
+}
+
+.quote-name {
+  margin-bottom: 0rem!important;
+}

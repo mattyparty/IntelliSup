@@ -8,14 +8,13 @@
         <div class="container">
             <div class="columns is-vcentered">
 
-                <!-- Short Description -->
                 <div class="column is-one-third">
                     <div class="has-background-primary box">
 
-                        <!-- Sources, links, and sharing section -->
+                        <!-- Short Description -->
                         <div class="columns">
                             <div class="column is-12">
-                                <div class="has-background-white box">
+                                <div class="has-background-white has-text-centered box">
                                     <p class="title is-5">Are you tired of constantly having to track down shipping
                                         information for all of
                                         your
@@ -147,133 +146,26 @@
                 </div>
 
                 <div class="columns is-vcentered">
-
                     <div class="column">
-
                         <div class="columns">
 
-                            <!-- Testimonal #1 -->
+                            <!-- Testimonals -->
+                            {{#each testimonials}}
                             <div class="column is-one-quarter">
                                 <div class="box">
-                                    <p class="title is-size-5">
-                                        Data Sources
+                                    <p class="quote is-size-5">
+                                        "{{quote}}"
                                     </p>
-                                    <p class="title is-size-6 metrics-header">
-                                        Air Quality Metrics
-                                    </p>
-                                    <p class="add-margin">
-                                        Air quality metrics data provided by <a href="https://www.weatherbit.io/"
-                                            target="_blank" class="text-link">Weatherbit.io</a>
-                                        under the terms of the <a
-                                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
-                                            target="_blank" class="text-link">Creative
-                                            Commons Attribution-NonCommercial-ShareAlike 4.0 Generic
-                                            License</a>.
-                                    </p>
-                                    <p class="title is-size-6 metrics-header">
-                                        COVID-19 Metrics
-                                    </p>
-                                    <p>
-                                        COVID-19 metrics data provided by <a href="https://covidtracking.com/"
-                                            target="_blank" class="text-link">The COVID Tracking Project</a>
-                                        under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/"
-                                            target="_blank" class="text-link">Creative Commons CC BY 4.0 License</a>.
+                                    <br>
+                                    <div class="title is-size-4 quote-name">
+                                        {{name}}
+                                    </div>
+                                    <p class="quote is-size-6">
+                                        {{title}}
                                     </p>
                                 </div>
                             </div>
-
-                            <!-- Testimonal #2 -->
-                            <div class="column is-one-quarter">
-                                <div class="box">
-                                    <p class="title is-size-5">
-                                        Data Sources
-                                    </p>
-                                    <p class="title is-size-6 metrics-header">
-                                        Air Quality Metrics
-                                    </p>
-                                    <p class="add-margin">
-                                        Air quality metrics data provided by <a href="https://www.weatherbit.io/"
-                                            target="_blank" class="text-link">Weatherbit.io</a>
-                                        under the terms of the <a
-                                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
-                                            target="_blank" class="text-link">Creative
-                                            Commons Attribution-NonCommercial-ShareAlike 4.0 Generic
-                                            License</a>.
-                                    </p>
-                                    <p class="title is-size-6 metrics-header">
-                                        COVID-19 Metrics
-                                    </p>
-                                    <p>
-                                        COVID-19 metrics data provided by <a href="https://covidtracking.com/"
-                                            target="_blank" class="text-link">The
-                                            COVID Tracking Project</a>
-                                        under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/"
-                                            target="_blank" class="text-link">Creative Commons CC BY 4.0 License</a>.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Testimonal #3 -->
-                            <div class="column is-one-quarter">
-                                <div class="box">
-                                    <p class="title is-size-5">
-                                        Data Sources
-                                    </p>
-                                    <p class="title is-size-6 metrics-header">
-                                        Air Quality Metrics
-                                    </p>
-                                    <p class="add-margin">
-                                        Air quality metrics data provided by <a href="https://www.weatherbit.io/"
-                                            target="_blank" class="text-link">Weatherbit.io</a>
-                                        under the terms of the <a
-                                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
-                                            target="_blank" class="text-link">Creative
-                                            Commons Attribution-NonCommercial-ShareAlike 4.0 Generic
-                                            License</a>.
-                                    </p>
-                                    <p class="title is-size-6 metrics-header">
-                                        COVID-19 Metrics
-                                    </p>
-                                    <p>
-                                        COVID-19 metrics data provided by <a href="https://covidtracking.com/"
-                                            target="_blank" class="text-link">The
-                                            COVID Tracking Project</a>
-                                        under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/"
-                                            target="_blank" class="text-link">Creative Commons CC BY 4.0 License</a>.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Testimonal #4 -->
-                            <div class="column is-one-quarter">
-                                <div class="box">
-                                    <p class="title is-size-5">
-                                        Data Sources
-                                    </p>
-                                    <p class="title is-size-6 metrics-header">
-                                        Air Quality Metrics
-                                    </p>
-                                    <p class="add-margin">
-                                        Air quality metrics data provided by <a href="https://www.weatherbit.io/"
-                                            target="_blank" class="text-link">Weatherbit.io</a>
-                                        under the terms of the <a
-                                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
-                                            target="_blank" class="text-link">Creative
-                                            Commons Attribution-NonCommercial-ShareAlike 4.0 Generic
-                                            License</a>.
-                                    </p>
-                                    <p class="title is-size-6 metrics-header">
-                                        COVID-19 Metrics
-                                    </p>
-                                    <p>
-                                        COVID-19 metrics data provided by <a href="https://covidtracking.com/"
-                                            target="_blank" class="text-link">The
-                                            COVID Tracking Project</a>
-                                        under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/"
-                                            target="_blank" class="text-link">Creative Commons CC BY 4.0 License</a>.
-                                    </p>
-                                </div>
-                            </div>
+                            {{/each}}
 
                         </div>
                     </div>
@@ -298,7 +190,7 @@
             <div class="has-background-primary box">
                 <div class="columns">
 
-                    <div class="column is-one-quarter pricing">
+                    <div class="column is-one-quarter has-text-centered pricing">
                         <div class="box">
                             <div class="plan-header">Starter</div>
                             <div class="plan-price"><span class="plan-price-amount"><span
