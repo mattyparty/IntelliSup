@@ -1,73 +1,295 @@
 {{!-- Navbar --}}
 {{> navbar }}
 
-<section class="hero has-background-white-ter is-fullheight">
-    <div class="hero-body">
-        <span class="container">
-            <div class="columns is-centered">
-                <div column is-5-tablet is-4desktop is-3-widescreen>
-                    <form method="post" action="/api/signup" id="signup1" class="box">
-                        <h3 class="title is-3">Sign Up Form</h3>
-                        <div class="field">
-                            <label for="" class="label">Email address</label>
-                            <div class="control has-icons-left">
-                                <input type="email" name="email" id="email-input" placeholder="sampleEmail@email.com"
-                                    class="input" required />
-                                <span class="icon is-small is-left">
-                                    <i class="fa fa-envelope"></i>
-                                </span>
+<main>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-vcentered">
+
+                <!-- Search panel and saved cities section -->
+                <div class="column is-two-fifths">
+                    <div class="has-background-white">
+
+                        <!-- City search form -->
+                        <figure class="image center">
+                            <img src="./images/intellisup_homepage_icon.png" alt="Intellisup: Supply Chain">
+                        </figure>
+
+                    </div>
+                </div>
+
+                <div class="column is-three-fifths">
+
+                    <!-- Metrics and map section -->
+                    <div class="has-background-primary box">
+                        <div class="columns">
+
+                            <!-- COVID-19 metrics -->
+
+                            <div class="column is-one-half" id="covid-metric">
+                                <div class="has-background-light box">
+                                    <form method="post" action="/api/signup" id="signup1" class="box">
+                                        <h3 class="title is-4">Sign Up</h3>
+                                        <div class="field">
+                                            <label class="label">Email</label>
+                                            <div class="control has-icons-left">
+                                                <input type="email" name="email" id="email-input"
+                                                    placeholder="sampleEmail@email.com" class="input" required />
+                                                <span class="icon is-small is-left">
+                                                    <i class="fa fa-envelope"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Password</label>
+                                            <div class="control has-icons-left">
+                                                <input name="password" type="password" id="password-input"
+                                                    placeholder="**********" class="input" required />
+                                                <span class="icon is-small is-left">
+                                                    <i class="fa fa-lock"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <button type="submit" class="button is-success">
+                                                Sign Up
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                        <div class="field">
-                            <label for="" class="label">Password</label>
-                            <div class="control has-icons-left">
-                                <input name="password" type="password" id="password-input" placeholder="**********"
-                                    class="input" required />
-                                <span class="icon is-small is-left">
-                                    <i class="fa fa-lock"></i>
-                                </span>
+
+                            <!-- Air quality metrics -->
+                            <div class="column is-one-half" id="air-metric">
+                                <div class="has-background-light box">
+                                    <form method="post" action="/api/login" class="box">
+                                        <h4 class="title is-4">Login</h4>
+                                        <div class="field">
+                                            <label class="label">Email</label>
+                                            <div class="control has-icons-left">
+                                                <input type="email" name="email" id="email-input"
+                                                    placeholder="sampleEmail@email.com" class="input" required />
+                                                <span class="icon is-small is-left">
+                                                    <i class="fa fa-envelope"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Password</label>
+                                            <div class="control has-icons-left">
+                                                <input type="password" name="password" id="password-input"
+                                                    placeholder="**********" class="input" required />
+                                                <span class="icon is-small is-left">
+                                                    <i class="fa fa-lock"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <button type="submit" class="button is-success">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
+
                         </div>
-                        <div class="field">
-                            <button type="submit" class="button is-success">
-                                Sign Up
-                            </button>
+                    </div>
+
+                    {{!--
+                    <!-- Sources, links, and sharing section -->
+                    <div class="has-background-white box">
+                        <div class="columns">
+
+                            <!-- Links and sources -->
+                            <div class="column is-four-fifths" id="links-sources">
+                                <div class="box">
+                                    <p class="title is-size-5">
+                                        Data Sources
+                                    </p>
+                                    <p class="title is-size-6 metrics-header">
+                                        Air Quality Metrics
+                                    </p>
+                                    <p class="add-margin">
+                                        Air quality metrics data provided by <a href="https://www.weatherbit.io/"
+                                            target="_blank" class="text-link">Weatherbit.io</a>
+                                        under the terms of the <a
+                                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+                                            target="_blank" class="text-link">Creative
+                                            Commons Attribution-NonCommercial-ShareAlike 4.0 Generic License</a>.
+                                    </p>
+                                    <p class="title is-size-6 metrics-header">
+                                        COVID-19 Metrics
+                                    </p>
+                                    <p>
+                                        COVID-19 metrics data provided by <a href="https://covidtracking.com/"
+                                            target="_blank" class="text-link">The COVID Tracking Project</a>
+                                        under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/"
+                                            target="_blank" class="text-link">Creative Commons CC BY 4.0 License</a>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Social sharing links -->
+                            <div class="column is-one-fifth" id="sharing">
+                                <div class="box has-text-centered">
+                                    <p class="title is-size-5">
+                                        Share Us!
+                                    </p>
+                                    <div class="fb-share-button" data-href="https://timothykemp.dev/aircare/"
+                                        data-layout="button_count" data-size="large"></div>
+                                    <div>
+                                        <a class="twitter-share-button"
+                                            href="https://twitter.com/intent/tweet?url=https://timothykemp.dev/aircare/"
+                                            data-size="large">
+                                            Tweet</a>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                    </form>
+                    </div> --}}
+
                 </div>
             </div>
-        </span>
-        <span class="container">
-            <div class="columns is-centered">
-                <div column is-5-tablet is-4desktop is-3-widescreen>
-                    <form method="post" action="/api/login" class="box">
-                        <h3 class="title is-3">Login Form</h3>
-                        <div class="field">
-                            <label for="" class="label">Email address</label>
-                            <div class="control has-icons-left">
-                                <input type="email" name="email" id="email-input" placeholder="sampleEmail@email.com"
-                                    class="input" required />
-                                <span class="icon is-small is-left">
-                                    <i class="fa fa-envelope"></i>
-                                </span>
+
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="has-background-white box">
+                <div class="columns">
+
+                    <!-- Links and sources -->
+                    <div class="column is-four-fifths" id="links-sources">
+                        <div class="box">
+                            <p class="title is-size-5">
+                                Data Sources
+                            </p>
+                            <p class="title is-size-6 metrics-header">
+                                Air Quality Metrics
+                            </p>
+                            <p class="add-margin">
+                                Air quality metrics data provided by <a href="https://www.weatherbit.io/"
+                                    target="_blank" class="text-link">Weatherbit.io</a>
+                                under the terms of the <a
+                                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank"
+                                    class="text-link">Creative
+                                    Commons Attribution-NonCommercial-ShareAlike 4.0 Generic License</a>.
+                            </p>
+                            <p class="title is-size-6 metrics-header">
+                                COVID-19 Metrics
+                            </p>
+                            <p>
+                                COVID-19 metrics data provided by <a href="https://covidtracking.com/" target="_blank"
+                                    class="text-link">The COVID Tracking Project</a>
+                                under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/"
+                                    target="_blank" class="text-link">Creative Commons CC BY 4.0 License</a>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Social sharing links -->
+                    <div class="column is-one-fifth" id="sharing">
+                        <div class="box has-text-centered">
+                            <p class="title is-size-5">
+                                Share Us!
+                            </p>
+                            <div class="fb-share-button" data-href="https://timothykemp.dev/aircare/"
+                                data-layout="button_count" data-size="large"></div>
+                            <div>
+                                <a class="twitter-share-button"
+                                    href="https://twitter.com/intent/tweet?url=https://timothykemp.dev/aircare/"
+                                    data-size="large">
+                                    Tweet</a>
                             </div>
                         </div>
-                        <div class="field">
-                            <label for="" class="label">Password</label>
-                            <div class="control has-icons-left">
-                                <input type="password" name="password" id="password-input" placeholder="**********"
-                                    class="input" required />
-                                <span class="icon is-small is-left">
-                                    <i class="fa fa-lock"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <button type="submit" class="button is-success">Login</button>
-                        </div>
-                    </form>
+                    </div>
+
                 </div>
             </div>
-        </span>
-    </div>
-</section>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container">
+            <div class="has-background-white box">
+                <div class="columns">
+
+                    <div class="column is-one-quarter pricing">
+                        <div class="box">
+                            <div class="plan-header">Starter</div>
+                            <div class="plan-price"><span class="plan-price-amount"><span
+                                        class="plan-price-currency">$</span>20</span>/month</div>
+                            <div class="plan-items">
+                                <div class="plan-item">20GB Storage</div>
+                                <div class="plan-item">100 Domains</div>
+                                <div class="plan-item">-</div>
+                                <div class="plan-item">-</div>
+                            </div>
+                            <div class="plan-footer">
+                                <button class="button is-fullwidth" disabled="disabled">Current plan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-quarter">
+                        <div class="box">
+                            <div class="pricing-plan is-warning">
+                                <div class="plan-header">Startups</div>
+                                <div class="plan-price"><span class="plan-price-amount"><span
+                                            class="plan-price-currency">$</span>40</span>/month
+                                </div>
+                                <div class="plan-items">
+                                    <div class="plan-item">20GB Storage</div>
+                                    <div class="plan-item">25 Domains</div>
+                                    <div class="plan-item">1TB Bandwidth</div>
+                                    <div class="plan-item">-</div>
+                                </div>
+                                <div class="plan-footer">
+                                    <button class="button is-fullwidth">Choose</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-quarter pricing">
+                        <div class="pricing-plan is-active">
+                            <div class="plan-header">Growing Team</div>
+                            <div class="plan-price"><span class="plan-price-amount"><span
+                                        class="plan-price-currency">$</span>60</span>/month
+                            </div>
+                            <div class="plan-items">
+                                <div class="plan-item">200GB Storage</div>
+                                <div class="plan-item">50 Domains</div>
+                                <div class="plan-item">1TB Bandwidth</div>
+                                <div class="plan-item">100 Email Boxes</div>
+                            </div>
+                            <div class="plan-footer">
+                                <button class="button is-fullwidth">Choose</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-quarter pricing">
+                        <div class="pricing-plan is-danger">
+                            <div class="plan-header">Enterprise</div>
+                            <div class="plan-price"><span class="plan-price-amount"><span
+                                        class="plan-price-currency">$</span>100</span>/month
+                            </div>
+                            <div class="plan-items">
+                                <div class="plan-item">2TB Storage</div>
+                                <div class="plan-item">100 Domains</div>
+                                <div class="plan-item">1TB Bandwidth</div>
+                                <div class="plan-item">1000 Email Boxes</div>
+                            </div>
+                            <div class="plan-footer">
+                                <button class="button is-fullwidth">Choose</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+</main>

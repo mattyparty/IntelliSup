@@ -3,6 +3,11 @@ form.login {
   margin-top: 50px;
 }
 
+body.has-navbar-fixed-top, 
+html.has-navbar-fixed-top {
+  padding-top: 5rem;
+}
+
 .navbar-item img {
     max-height: 80px;
 }
@@ -26,4 +31,21 @@ form.login {
 .orderBtn {
   margin-left: .5rem;
   margin-right: .5rem;
+}
+
+.center {
+  display: block;
+  width: 65%;
+}
+
+.title{
+  margin-bottom: .75rem;
+}
+
+.title:not(:last-child) {
+  margin-bottom: .75rem;
+}
+
+.section {
+    padding: 2rem 1.5rem;
 }
