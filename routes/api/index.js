@@ -18,7 +18,6 @@ router
 // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
 // otherwise send back an error
 router.route('/signup', isAuthenticated).post((req, res) => {
-  //  console.log('this is the sign up route', req.body);
   db.user
     .create(req.body)
     .then(() => {
@@ -59,7 +58,6 @@ router.route('/account', isAuthenticated).get((req, res) => {
       ]
     })
     .then((results) => {
-      console.log(results[0].dataValues.orders);
       const dataArr = results[0].orders.map((obj) => {
         return {
           ...obj.dataValues,
@@ -112,7 +110,6 @@ router.route('/admin', isAuthenticated).get((req, res) => {
     .findAll({})
     .then((results) => {
       res.json({ results });
-      console.log({ results });
     })
     .catch((err) => {
       console.log(err);

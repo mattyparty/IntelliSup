@@ -1,26 +1,23 @@
 const getData = () => {
   $.get('/api/account').then((response) => {
-    console.log(response.results);
     makeTable(response.results);
-    //console.log(data);
   });
 };
 
 // Update tracking number ajax call
 const updateData = (data, id) => {
-  console.log(data);
   $.ajax({
     method: 'PUT',
     url: '/api/account/' + id,
     data: {
-      tracking_number: function() {
+      tracking_number: function () {
         for (var i = 0; i < data.length; i++) {
           if (data[i].id === id) {
             return data[i].tracking_number;
           }
         }
       },
-      est_ship_date: function() {
+      est_ship_date: function () {
         for (var i = 0; i < data.length; i++) {
           if (data[i].id === id) {
             return data[i].est_ship_date;
@@ -56,7 +53,7 @@ const addData = (data) => {
   });
 };
 
-const saveButton = function(cell, formatterParams) {
+const saveButton = function (cell, formatterParams) {
   let btn = ' <button class="button is-primary is-small">Update</button>';
   return btn;
 };
@@ -67,7 +64,7 @@ $('#poForm').on('submit', (event) => {
 });
 
 // Date editor function
-var dateEditor = function(cell, onRendered, success, cancel, editorParams) {
+var dateEditor = function (cell, onRendered, success, cancel, editorParams) {
   var editor = document.createElement('input');
 
   editor.setAttribute('type', 'date');
@@ -78,7 +75,7 @@ var dateEditor = function(cell, onRendered, success, cancel, editorParams) {
 
   editor.value = moment(cell.getValue(), 'MM/DD/YYYY').format('YYYY-MM-DD');
 
-  onRendered(function() {
+  onRendered(function () {
     editor.focus();
     editor.style.css = '100%';
   });
@@ -151,12 +148,11 @@ const makeTable = (data) => {
       {
         hozAlign: 'center',
         formatter: saveButton,
-        cellClick: function(e, cell) {
+        cellClick: function (e, cell) {
           // Function to route api here
           var row = cell.getRow();
           var id = row.getIndex();
           updateData(data, id);
-          console.log(id);
         }
       }
     ]
