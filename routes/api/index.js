@@ -2,33 +2,35 @@ const router = require('express').Router();
 // Requiring our models and passport as we've configured it
 const db = require('../../models');
 const passport = require('../../config/passport');
-
+const isAuthenticated = require('../../config/middleware/isAuthenticated');
+// const supplier = require('../../models/supplier');
 // Using the passport.authenticate middleware with our local strategy.
-// If the user has valid login credentials, send them to the members page.
+// If the user has valid login credentials, send them to the account page.
 // Otherwise the user will be sent an error
-router.post('/login', passport.authenticate('local'), (req, res) => {
-  // Sending back a password, even a hashed password, isn't a good idea
-  res.json({
-    email: req.user.email,
-    id: req.user.id
+router
+  .route('/login', isAuthenticated)
+  .post(passport.authenticate('local'), (req, res) => {
+    // Sending back a password, even a hashed password, isn't a good idea
+    res.redirect('/account');
   });
-});
 
 // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
 // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
 // otherwise send back an error
-router.post('/signup', (req, res) => {
-  db.User.create(req.body)
+router.route('/signup', isAuthenticated).post((req, res) => {
+  //  console.log('this is the sign up route', req.body);
+  db.user
+    .create(req.body)
     .then(() => {
-      res.redirect(307, '/api/login');
+      res.redirect('/account');
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(401).json(err);
     });
 });
 
 // Route for getting some data about our user to be used client side
-router.get('/user_data', (req, res) => {
+router.route('/user_data', isAuthenticated).get((req, res) => {
   if (!req.user) {
     // The user is not logged in, send back an empty object
     return res.json({});
@@ -38,5 +40,90 @@ router.get('/user_data', (req, res) => {
   const { password, ...user } = req.user;
   res.json(user);
 });
+// matt added this API Route
 
+router.route('/account', isAuthenticated).get((req, res) => {
+  if (!req.user) {
+    // The user is not logged in, send back an empty object
+    return res.json({});
+  }
+  const user = req.user.email;
+  db.supplier_map_login
+    .findAll({
+      where: { login_email: user },
+      include: [
+        {
+          model: db.order
+        },
+        { model: db.supplier }
+      ]
+    })
+    .then((results) => {
+      console.log(results[0].dataValues.orders);
+      const dataArr = results[0].orders.map((obj) => {
+        return {
+          ...obj.dataValues,
+          supplierName: results[0].supplier.supplier_name
+        };
+      });
+
+      res.json({ results: dataArr });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+// route for updating a record
+router.route('/account/:id', isAuthenticated).put((req, res) => {
+  db.order
+    .update(req.body, { where: { id: req.params.id } })
+    .then((updated) => {
+      res.json(updated);
+    });
+});
+
+// route for adding a record
+router.route('/orders', isAuthenticated).post((req, res) => {
+  db.order
+    .create({
+      item: req.body.item,
+      po_received: req.body.poReceived,
+      po_due_date: req.body.dueDate,
+      supplier_number: req.body.supplier,
+      po_number: req.body.poNum,
+
+      supplierMapLoginId: parseInt(req.body.supplier)
+    })
+
+    .then((updated) => {
+      res.json(updated);
+    });
+});
+
+// route for admin access
+
+router.route('/admin', isAuthenticated).get((req, res) => {
+  if (!req.user) {
+    // The user is not logged in, send back an empty object
+    return res.json({});
+  }
+  db.supplier_map_login
+    .findAll({})
+    .then((results) => {
+      res.json({ results });
+      console.log({ results });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 module.exports = router;
+
+router.route('/admin/:id', isAuthenticated).put((req, res) => {
+  db.supplier_map_login
+    .update(req.body, { where: { id: req.params.id } })
+    .then((updated) => {
+      res.json(updated);
+    });
+});
