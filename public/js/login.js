@@ -1,3 +1,4 @@
+// Global variable
 const $ = window.$;
 
 $(document).ready(() => {
@@ -14,17 +15,18 @@ $(document).ready(() => {
       password: passwordInput.val().trim()
     };
 
+    // If no email or password, return
     if (!userData.email || !userData.password) {
       return;
     }
 
-    // If we have an email and password we run the loginUser function and clear the form
+    // If email and password exist, run loginUser function and clear the form
     loginUser(userData.email, userData.password);
     emailInput.val('');
     passwordInput.val('');
   });
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the account page
+  // loginUser does post to 'api/login' route. on success, send to account page
   function loginUser(email, password) {
     $.post('/api/login', {
       email: email,

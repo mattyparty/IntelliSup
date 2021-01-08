@@ -1,3 +1,4 @@
+// Defining the Supplier Map Login table
 module.exports = (sequelize, DataTypes) => {
   const SupplierMapLogin = sequelize.define(
     'supplier_map_login',
@@ -6,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-
       supplier_number: {
         type: DataTypes.INTEGER,
         allowNull: false
@@ -17,9 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
+  // Associating Order & Supplier tables to Supplier Map Login table
   SupplierMapLogin.associate = (models) => {
     SupplierMapLogin.hasMany(models.order);
     SupplierMapLogin.belongsTo(models.supplier);
   };
+
   return SupplierMapLogin;
 };

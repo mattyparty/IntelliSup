@@ -1,59 +1,59 @@
-{{!-- Navbar --}}
 {{> navbar }}
 
 <main>
 
     <!-- Description & Sign Up/Login Panel -->
-    <section class="section">
-        <div class="container">
-            <div class="columns is-vcentered">
+    <section class='section'>
+        <div class='container'>
+            <div class='columns is-vcentered'>
 
-                <div class="column is-one-third">
-                    <div class="has-background-primary box">
+                <div class='column is-one-third'>
+                    <div class='has-background-primary box'>
 
                         <!-- Short Description -->
-                        <div class="columns">
-                            <div class="column is-12">
-                                <div class="has-background-white has-text-centered box">
-                                    <p class="title is-4 is-secondary-text">So many Suppliers!</p>
-                                    <p class="title is-4 is-secondary-text">So many Buyers!</p>
+                        <div class='columns'>
+                            <div class='column is-12'>
+                                <div class='has-background-white has-text-centered box'>
+                                    <p class='title is-4 is-secondary-text'>So many Suppliers!</p>
+                                    <p class='title is-4 is-secondary-text'>So many Buyers!</p>
 
-                                    <p class="title is-5">Are you tired of constantly having to track down shipping
+                                    <p class='title is-5'>Are you tired of constantly having to track down shipping
                                         information for all of
                                         your
                                         purchase orders?</p>
 
-                                    <p class="title is-3 is-secondary-text">There
-                                        <span class="is-primary-text has-text-weight-bold">IS</span>
+                                    <p class='title is-3 is-secondary-text'>There
+                                        <span class='is-primary-text has-text-weight-bold'>IS</span>
                                         a better way with IntelliSup!
                                     </p>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
                 <!-- Supply Chain Simplified Graphic -->
-                <div class="column is-one-third">
-                    <div class="has-background-white">
+                <div class='column is-one-third'>
+                    <div class='has-background-white'>
 
-                        <figure class="image center">
-                            <img src="./images/intellisup_homepage_icon.png" alt="Intellisup: Supply Chain">
+                        <figure class='image center'>
+                            <img src='./images/intellisup_homepage_icon.png' alt='Intellisup: Supply Chain'>
                         </figure>
 
                     </div>
                 </div>
 
                 <!-- Tabbed Sign Up & Login Forms -->
-                <div class="column is-one-third">
-                    <div class="has-background-primary box">
-                        <div class="columns">
-                            <div class="column is-12 tabs is-fullwidth is-boxed">
-                                <div class="has-background-white box">
+                <div class='column is-one-third'>
+                    <div class='has-background-primary box'>
+                        <div class='columns'>
+                            <div class='column is-12 tabs is-fullwidth is-boxed'>
+                                <div class='has-background-white box'>
 
                                     <!-- Sign Up & Login Tabs -->
                                     <ul>
-                                        <li class="is-active">
+                                        <li class='is-active'>
                                             <a>
                                                 <strong>Sign Up</strong>
                                             </a>
@@ -65,33 +65,33 @@
                                         </li>
                                     </ul>
 
-                                    <div class="column is-12">
+                                    <div class='column is-12'>
 
                                         <!-- Sign Up Form -->
-                                        <div class="tab-content is-active">
-                                            <form method="post" action="/api/signup" id="signup1">
-                                                <div class="field">
-                                                    <label class="label">Email</label>
-                                                    <div class="control has-icons-left">
-                                                        <input type="email" name="email" id="email-input"
-                                                            placeholder="myname@email.com" class="input" required />
-                                                        <span class="icon is-small is-left">
-                                                            <i class="fa fa-envelope"></i>
+                                        <div class='tab-content is-active'>
+                                            <form method='post' action='/api/signup' id='signup1'>
+                                                <div class='field'>
+                                                    <label class='label'>Email</label>
+                                                    <div class='control has-icons-left'>
+                                                        <input type='email' name='email' id='email-input'
+                                                            placeholder='myname@email.com' class='input' required />
+                                                        <span class='icon is-small is-left'>
+                                                            <i class='fa fa-envelope'></i>
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="field">
-                                                    <label class="label">Password</label>
-                                                    <div class="control has-icons-left">
-                                                        <input name="password" type="password" id="password-input"
-                                                            placeholder="**********" class="input" required />
-                                                        <span class="icon is-small is-left">
-                                                            <i class="fa fa-lock"></i>
+                                                <div class='field'>
+                                                    <label class='label'>Password</label>
+                                                    <div class='control has-icons-left'>
+                                                        <input name='password' type='password' id='password-input'
+                                                            placeholder='**********' class='input' required />
+                                                        <span class='icon is-small is-left'>
+                                                            <i class='fa fa-lock'></i>
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="field">
-                                                    <button type="submit" class="button is-primary">
+                                                <div class='field'>
+                                                    <button type='submit' class='button is-primary'>
                                                         Sign Up
                                                     </button>
                                                 </div>
@@ -99,31 +99,31 @@
                                         </div>
 
                                         <!-- Login Form -->
-                                        <div class="tab-content">
-                                            <form method="post" action="/api/login">
-                                                <div class="field">
-                                                    <label class="label">Email</label>
-                                                    <div class="control has-icons-left">
-                                                        <input type="email" name="email" id="email-input"
-                                                            placeholder="sampleEmail@email.com" class="input"
+                                        <div class='tab-content'>
+                                            <form method='post' action='/api/login'>
+                                                <div class='field'>
+                                                    <label class='label'>Email</label>
+                                                    <div class='control has-icons-left'>
+                                                        <input type='email' name='email' id='email-input'
+                                                            placeholder='sampleEmail@email.com' class='input'
                                                             required />
-                                                        <span class="icon is-small is-left">
-                                                            <i class="fa fa-envelope"></i>
+                                                        <span class='icon is-small is-left'>
+                                                            <i class='fa fa-envelope'></i>
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="field">
-                                                    <label class="label">Password</label>
-                                                    <div class="control has-icons-left">
-                                                        <input type="password" name="password" id="password-input"
-                                                            placeholder="**********" class="input" required />
-                                                        <span class="icon is-small is-left">
-                                                            <i class="fa fa-lock"></i>
+                                                <div class='field'>
+                                                    <label class='label'>Password</label>
+                                                    <div class='control has-icons-left'>
+                                                        <input type='password' name='password' id='password-input'
+                                                            placeholder='**********' class='input' required />
+                                                        <span class='icon is-small is-left'>
+                                                            <i class='fa fa-lock'></i>
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="field">
-                                                    <button type="submit" class="button is-primary">Login</button>
+                                                <div class='field'>
+                                                    <button type='submit' class='button is-primary'>Login</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -141,30 +141,30 @@
     </section>
 
     <!-- Testimonials Panel -->
-    <section class="hero">
-        <div class="hero-body has-background-secondary">
-            <div class="container">
+    <section class='hero'>
+        <div class='hero-body has-background-secondary'>
+            <div class='container'>
 
-                <div class="title is-1 has-text-centered test-text">
+                <div class='title is-1 has-text-centered test-text'>
                     Actual Customer Testimonials*
                 </div>
 
-                <div class="columns is-vcentered">
-                    <div class="column">
-                        <div class="columns">
+                <div class='columns is-vcentered'>
+                    <div class='column'>
+                        <div class='columns'>
 
-                            <!-- Testimonals -->
+                            <!-- Testimonials with handlebars -->
                             {{#each testimonials}}
-                            <div class="column is-one-quarter">
-                                <div class="box">
-                                    <p class="quote is-size-5">
-                                        "{{quote}}"
+                            <div class='column is-one-quarter'>
+                                <div class='box'>
+                                    <p class='quote is-size-5'>
+                                        '{{quote}}'
                                     </p>
                                     <br>
-                                    <div class="title is-size-4 quote-name">
+                                    <div class='title is-size-4 quote-name'>
                                         {{name}}
                                     </div>
-                                    <p class="quote is-size-6">
+                                    <p class='quote is-size-6'>
                                         {{title}}
                                     </p>
                                 </div>
@@ -175,7 +175,7 @@
                     </div>
                 </div>
 
-                <div class="title is-7 has-text-left test-text-2">
+                <div class='title is-7 has-text-left test-text-2'>
                     *Not actual testimonials
                 </div>
 
@@ -184,17 +184,18 @@
     </section>
 
     <!-- Contact Us -->
-    <section class="section">
-        <div class="container">
+    <section class='section'>
+        <div class='container'>
 
-            <div class="title is-1 has-text-centered price-text">
-                Questions? <a href="mailto:info@intellisup.com" class="contact-link">Contact us</a> today!*
+            <div class='title is-1 has-text-centered contact-text'>
+                Questions? <a href='mailto:info@intellisup.com' class='contact-link'>Contact us</a> today!*
             </div>
 
-            <div class="title is-7 has-text-centered">
+            <div class='title is-7 has-text-centered'>
                 *Not a real email address
             </div>
 
+        </div>
     </section>
 
 </main>

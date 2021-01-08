@@ -1,43 +1,20 @@
+// Gets data about the user and execute function to build Admin table
 const getAdminData = () => {
   $.get('/api/admin').then((response) => {
     makeAdminTable(response.results);
   });
 };
-const updateSupplierID = (data, id) => {
-  $.ajax({
-    method: 'PUT',
-    url: '/api/admin/' + id,
-    data: {
-      supplierId: function () {
-        for (var i = 0; i < data.length; i++) {
-          if (data[i].id === id) {
-            return data[i].supplierId;
-          }
-        }
-      },
-      supplier_number: function () {
-        for (var i = 0; i < data.length; i++) {
-          if (data[i].id === id) {
-            return data[i].supplierId;
-          }
-        }
-      }
-    }
-  }).then(() => {
-    window.location.href = '/admin';
-  });
-};
 
+// Function to build Admin table using Tabulator
 const makeAdminTable = (data) => {
   new Tabulator('#admin-table', {
-    // Define Table Columns
-    // pagination: 'local',
+    // Define table attributes
     data: data,
     layout: 'fitColumns',
     pagination: 'local',
     paginationSize: 5,
     columns: [
-      // Define Table Columns
+      // Define table columns
       {
         title: 'User Email',
         field: 'login_email',
@@ -49,10 +26,7 @@ const makeAdminTable = (data) => {
         hozAlign: 'center',
         editor: 'select',
         editorParams:
-          //option group
-
-          //options in option group
-
+          //Available options in drop-down
           [
             {
               label: 'Stark Industries',
@@ -80,12 +54,11 @@ const makeAdminTable = (data) => {
             }
           ]
       },
-
       {
         hozAlign: 'center',
         formatter: saveButton,
         cellClick: function (e, cell) {
-          // funtion to route api here
+          // Executes function to update Supplier Map Login table on click
           e.preventDefault();
           var row = cell.getRow();
           var id = row.getIndex();
@@ -93,6 +66,32 @@ const makeAdminTable = (data) => {
         }
       }
     ]
+  });
+};
+
+// Function to update fields on the Supplier Map Login table
+const updateSupplierID = (data, id) => {
+  $.ajax({
+    method: 'PUT',
+    url: '/api/admin/' + id,
+    data: {
+      supplierId: function () {
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].id === id) {
+            return data[i].supplierId;
+          }
+        }
+      },
+      supplier_number: function () {
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].id === id) {
+            return data[i].supplierId;
+          }
+        }
+      }
+    }
+  }).then(() => {
+    window.location.href = '/admin';
   });
 };
 
