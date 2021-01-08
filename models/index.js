@@ -1,4 +1,4 @@
-//Required modules and files
+// Required modules and files
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
