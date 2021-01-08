@@ -5,6 +5,7 @@ const router = require('express').Router();
 // Route to render home page
 router.get('/', (req, res) => {
   res.render('index',
+    // Data used by handlebars for testimonials
     {
       home: true,
       testimonials: [
@@ -33,7 +34,7 @@ router.get('/', (req, res) => {
   );
 });
 
-// Route to render login?
+// Route for logging user in
 router.get('/login', (req, res) => {
   // If the user already has an account send them to the account page
   if (req.user) {
@@ -49,8 +50,6 @@ router.get('/logout', (req, res) => {
 
 // Here we've add our isAuthenticated middleware to this route.
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
-// /////////////////////////////////////////////////////////////////////////
-
 router.get('/account', isAuthenticated, (_req, res) => {
   res.render('account', { account: true });
 });

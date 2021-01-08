@@ -2,6 +2,7 @@
 
 <main>
 
+    <!-- Admin panel banner -->
     <div class="container">
         <div class="columns is-centered">
             <div class="column">
@@ -10,7 +11,7 @@
         </div>
     </div>
 
-
+    <!-- Create a purchase order form -->
     <section class="section">
 
         <p class="is-size-1 has-text-centered has-text-weight-bold">Create A Purchase Order</p>
@@ -18,9 +19,9 @@
         <div class="container has-background-primary box">
             <div class="container box">
                 <form id="poForm">
-
                     <div class="field is-horizontal">
 
+                        <!-- PO # field -->
                         <div class="field-label is-normal">
                             <label class="label">PO #:</label>
                         </div>
@@ -32,6 +33,7 @@
                             </div>
                         </div>
 
+                        <!-- Item field -->
                         <div class="field-label is-normal">
                             <label class="label">Item:</label>
                         </div>
@@ -43,6 +45,7 @@
                             </div>
                         </div>
 
+                        <!-- Supplier field -->
                         <div class="field-label is-normal">
                             <label class="label">Supplier:</label>
                         </div>
@@ -63,6 +66,7 @@
                             </div>
                         </div>
 
+                        <!-- Due Date field -->
                         <div class="field-label is-normal">
                             <label class="label">Due Date:</label>
                         </div>
@@ -74,6 +78,7 @@
                             </div>
                         </div>
 
+                        <!-- Submit button -->
                         <div class="field">
                             <div class="control">
                                 <input class="button is-primary orderBtn" type="submit" id="orderBtn"></input>
@@ -88,11 +93,12 @@
         </div>
     </section>
 
+    <!-- Form to manage supplier IDs -->
     <section class="section">
         <p class="is-size-1 has-text-centered has-text-weight-bold">Manage Supplier IDs</p>
         <div class="container has-background-primary box">
             <div class="container box">
-                <div id='admin-table'></div>
+                <div id='admin-table' class="is-striped is-bordered is-narrow is-hoverable"></div>
             </div>
         </div>
     </section>

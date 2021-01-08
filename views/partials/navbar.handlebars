@@ -1,9 +1,10 @@
+{{!-- Dynamic Header/Navbar using handlebars --}}
 {{#if home}}
+<!-- Home page banner/logo -->
 <div class="hero">
     <div class="hero-body box">
         <div class="columns is-vcentered">
             <div class="column">
-                <!-- Sources, links, and sharing section -->
                 <div class="columns">
                     <div class="column is-12">
                         <nav class="level">
@@ -21,14 +22,16 @@
 </div>
 
 {{else}}
-
+<!-- Navbar for logged in pages -->
 <nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
 
+        <!-- Logo -->
         <a class="navbar-item" href="/">
             <img class="logo" src="./images/intellisup_logo.png" alt="IntelliSup Logo">
         </a>
 
+        <!-- Responsive burger menu button -->
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -37,9 +40,11 @@
 
     </div>
 
+    <!-- Contents of burger menu/end of navbar -->
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-end">
 
+            <!-- On Account page, show Admin button -->
             {{#if account}}
             <div class="navbar-item">
                 <div class="buttons">
@@ -49,6 +54,7 @@
                 </div>
             </div>
 
+            <!-- On Admin page, show Account button -->
             {{else if admin}}
             <div class="navbar-item">
                 <div class="buttons">
@@ -60,6 +66,7 @@
 
             {{/if}}
 
+            <!-- Logout button -->
             <div class="navbar-item">
                 <div class="buttons">
                     <a class="button is-primary" href="/logout">
