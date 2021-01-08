@@ -2,6 +2,20 @@
 
   [![MIT License](https://img.shields.io/badge/license-MIT%20License-green)](https://opensource.org/licenses/MIT)
 
+-----
+
+## Table of Contents
+
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+
+-----
+
 ## Description
 
 This program is the perfect application any of your supplier needs. The application is designed to allow user to make a new purchase order from suppliers. This order is then submitted into the database and displayed in the front end for the user to confirm information submitted. The application also allows the user to update tracking information and estimated ship date for each product.
@@ -13,17 +27,6 @@ Example images:
 ![Homepage](./public/images/homePage.png)
 ![Account](./public/images/account.png)
 ![Admin](./public/images/admin.png)
-
------
-
-## Table of Contents
-
-* [Installation](#installation)
-* [Usage](#usage)
-* [License](#license)
-* [Contributing](#contributing)
-* [Tests](#tests)
-* [Questions](#questions)
 
 -----
 
