@@ -26,7 +26,7 @@ $(document).ready(() => {
     passwordInput.val('');
   });
 
-  // loginUser does post to "api/login" route. on success, send to account page
+  // loginUser does post to 'api/login' route. on success, send to account page
   function loginUser(email, password) {
     $.post('/api/login', {
       email: email,

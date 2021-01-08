@@ -149,14 +149,14 @@
 
 @media only screen and (max-width: 678px) {
   /* For mobile phones: */
-  [class*="footer-sticky"] {
+  [class*='footer-sticky'] {
   position: relative;
   }
 }
 
 @media only screen and (max-height: 800px) {
   /* For mobile phones: */
-  [class*="footer-sticky"] {
+  [class*='footer-sticky'] {
   position: relative;
   }
 }

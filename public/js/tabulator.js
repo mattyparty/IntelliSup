@@ -56,7 +56,7 @@ const addData = (data) => {
 
 // Formats Update button
 const saveButton = function (cell, formatterParams) {
-  let btn = ' <button class="button is-primary is-small">Update</button>';
+  let btn = '<button class="button is-primary is-small">Update</button>';
   return btn;
 };
 
