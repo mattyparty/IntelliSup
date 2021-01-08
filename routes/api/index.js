@@ -3,7 +3,7 @@ const router = require('express').Router();
 const db = require('../../models');
 const passport = require('../../config/passport');
 const isAuthenticated = require('../../config/middleware/isAuthenticated');
-// const supplier = require('../../models/supplier');
+
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the account page.
 // Otherwise the user will be sent an error
@@ -14,9 +14,8 @@ router
     res.redirect('/account');
   });
 
-// Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-// how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-// otherwise send back an error
+// Route for signing up a user. The user's password is automatically hashed and stored securely thanks to how we configured our Sequelize User Model. 
+// If user is created successfully, log the user in, otherwise send an error
 router.route('/signup', isAuthenticated).post((req, res) => {
   db.user
     .create(req.body)
@@ -39,14 +38,16 @@ router.route('/user_data', isAuthenticated).get((req, res) => {
   const { password, ...user } = req.user;
   res.json(user);
 });
-// matt added this API Route
 
+// Route for determining data user should see on Account page based on mappings
 router.route('/account', isAuthenticated).get((req, res) => {
   if (!req.user) {
     // The user is not logged in, send back an empty object
     return res.json({});
   }
+
   const user = req.user.email;
+
   db.supplier_map_login
     .findAll({
       where: { login_email: user },
@@ -64,7 +65,6 @@ router.route('/account', isAuthenticated).get((req, res) => {
           supplierName: results[0].supplier.supplier_name
         };
       });
-
       res.json({ results: dataArr });
     })
     .catch((err) => {
@@ -72,7 +72,7 @@ router.route('/account', isAuthenticated).get((req, res) => {
     });
 });
 
-// route for updating a record
+// Route for updating a record on the Orders table
 router.route('/account/:id', isAuthenticated).put((req, res) => {
   db.order
     .update(req.body, { where: { id: req.params.id } })
@@ -81,7 +81,7 @@ router.route('/account/:id', isAuthenticated).put((req, res) => {
     });
 });
 
-// route for adding a record
+// Route for adding a record to the Orders table
 router.route('/orders', isAuthenticated).post((req, res) => {
   db.order
     .create({
@@ -90,22 +90,20 @@ router.route('/orders', isAuthenticated).post((req, res) => {
       po_due_date: req.body.dueDate,
       supplier_number: req.body.supplier,
       po_number: req.body.poNum,
-
       supplierMapLoginId: parseInt(req.body.supplier)
     })
-
     .then((updated) => {
       res.json(updated);
     });
 });
 
-// route for admin access
-
+// Route for access to Admin page
 router.route('/admin', isAuthenticated).get((req, res) => {
   if (!req.user) {
     // The user is not logged in, send back an empty object
     return res.json({});
   }
+
   db.supplier_map_login
     .findAll({})
     .then((results) => {
@@ -115,8 +113,8 @@ router.route('/admin', isAuthenticated).get((req, res) => {
       console.log(err);
     });
 });
-module.exports = router;
 
+// Route for updating Supplier Map Login table
 router.route('/admin/:id', isAuthenticated).put((req, res) => {
   db.supplier_map_login
     .update(req.body, { where: { id: req.params.id } })
@@ -124,3 +122,5 @@ router.route('/admin/:id', isAuthenticated).put((req, res) => {
       res.json(updated);
     });
 });
+
+module.exports = router;

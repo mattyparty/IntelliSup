@@ -4,7 +4,7 @@ $(document).ready(() => {
   const emailInput = $('input#email-input');
   const passwordInput = $('input#password-input');
 
-  // When the signup button is clicked, we validate the email and password are not blank
+  // When signup button is clicked, validate email and password are not blank
   signUpForm.on('submit', event => {
     event.preventDefault();
     const userData = {
@@ -12,16 +12,18 @@ $(document).ready(() => {
       password: passwordInput.val().trim()
     };
 
+    // If no email or password, return
     if (!userData.email || !userData.password) {
       return;
     }
+
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.email, userData.password);
     emailInput.val('');
     passwordInput.val('');
   });
 
-  // Does a post to the signup route. If successful, we are redirected to the account page
+  // Does a post to signup route. On success, redirect to account page
   // Otherwise we log any errors
   function signUpUser(email, password) {
     $.post('/api/signup', {
@@ -30,7 +32,6 @@ $(document).ready(() => {
     })
       .then(() => {
         window.location.replace('/account');
-        // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(err);
   }
