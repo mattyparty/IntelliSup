@@ -108,11 +108,27 @@
 .footer {
   background-color: #373737;
   width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .footer-sticky {
   bottom: 0;
   position: absolute;
+}
+
+@media only screen and (max-width: 678px) {
+  /* For mobile phones: */
+  [class*="footer-sticky"] {
+  position: relative;
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  /* For mobile phones: */
+  [class*="footer-sticky"] {
+  position: relative;
+  }
 }
 
 .footer-text {
@@ -130,4 +146,12 @@
 
 .contact-link {
   color: #56C596;
+}
+
+.is-primary-text {
+  color: #56C596!important;
+}
+
+.is-secondary-text {
+  color: #205072!important;
 }
