@@ -1,15 +1,16 @@
+{{!-- Dynamic Header/Navbar using handlebars --}}
 {{#if home}}
-<div class="hero">
-    <div class="hero-body box">
-        <div class="columns is-vcentered">
-            <div class="column">
-                <!-- Sources, links, and sharing section -->
-                <div class="columns">
-                    <div class="column is-12">
-                        <nav class="level">
-                            <p class="level-item has-text-centered">
-                                <a class="level-item" href="/">
-                                    <img class="banner-logo" src="./images/intellisup_logo.png" alt="IntelliSup Logo">
+<!-- Home page banner/logo -->
+<div class='hero'>
+    <div class='hero-body box'>
+        <div class='columns is-vcentered'>
+            <div class='column'>
+                <div class='columns'>
+                    <div class='column is-12'>
+                        <nav class='level'>
+                            <p class='level-item has-text-centered'>
+                                <a class='level-item' href='/'>
+                                    <img class='banner-logo' src='./images/intellisup_logo.png' alt='IntelliSup Logo'>
                                 </a>
                             </p>
                         </nav>
@@ -21,38 +22,43 @@
 </div>
 
 {{else}}
+<!-- Navbar for logged in pages -->
+<nav class='navbar is-spaced' role='navigation' aria-label='main navigation'>
+    <div class='navbar-brand'>
 
-<nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-
-        <a class="navbar-item" href="/">
-            <img class="logo" src="./images/intellisup_logo.png" alt="IntelliSup Logo">
+        <!-- Logo -->
+        <a class='navbar-item' href='/'>
+            <img class='logo' src='./images/intellisup_logo.png' alt='IntelliSup Logo'>
         </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+        <!-- Responsive burger menu button -->
+        <a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='navbarBasicExample'>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
         </a>
 
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end">
+    <!-- Contents of burger menu/end of navbar -->
+    <div id='navbarBasicExample' class='navbar-menu'>
+        <div class='navbar-end'>
 
+            <!-- On Account page, show Admin button -->
             {{#if account}}
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-primary" href="/admin">
+            <div class='navbar-item'>
+                <div class='buttons'>
+                    <a class='button is-primary' href='/admin'>
                         <strong>Admin</strong>
                     </a>
                 </div>
             </div>
 
+            <!-- On Admin page, show Account button -->
             {{else if admin}}
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-primary" href="/account">
+            <div class='navbar-item'>
+                <div class='buttons'>
+                    <a class='button is-primary' href='/account'>
                         <strong>Account</strong>
                     </a>
                 </div>
@@ -60,9 +66,10 @@
 
             {{/if}}
 
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-primary" href="/logout">
+            <!-- Logout button -->
+            <div class='navbar-item'>
+                <div class='buttons'>
+                    <a class='button is-primary' href='/logout'>
                         <strong>Logout</strong>
                     </a>
                 </div>

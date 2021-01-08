@@ -1,10 +1,11 @@
+// Gets data about the user and execute function to build Order table
 const getData = () => {
   $.get('/api/account').then((response) => {
     makeTable(response.results);
   });
 };
 
-// Update tracking number ajax call
+// Update Tracking Number & Estimated Ship Date
 const updateData = (data, id) => {
   $.ajax({
     method: 'PUT',
@@ -30,7 +31,7 @@ const updateData = (data, id) => {
   });
 };
 
-// Add orders ajax call
+// Create new Orders, update database, and reload page
 const addData = (data) => {
   let supplierInput = $('#supplier').val();
   let dueDateInput = $('#dueDate').val();
@@ -53,26 +54,26 @@ const addData = (data) => {
   });
 };
 
+// Formats Update button
 const saveButton = function (cell, formatterParams) {
-  let btn = ' <button class="button is-primary is-small">Update</button>';
+  let btn = '<button class="button is-primary is-small">Update</button>';
   return btn;
 };
 
+// When Submit button is clicked on Order form, run function to add it to table
 $('#poForm').on('submit', (event) => {
   event.preventDefault();
   addData();
 });
 
-// Date editor function
+// Function to edit Estimated Ship Date with date picker
 var dateEditor = function (cell, onRendered, success, cancel, editorParams) {
   var editor = document.createElement('input');
 
   editor.setAttribute('type', 'date');
-
   editor.style.padding = '3px';
   editor.style.width = '100%';
   editor.style.boxSizing = 'border-box';
-
   editor.value = moment(cell.getValue(), 'MM/DD/YYYY').format('YYYY-MM-DD');
 
   onRendered(function () {
@@ -90,21 +91,21 @@ var dateEditor = function (cell, onRendered, success, cancel, editorParams) {
   return editor;
 };
 
+// Function to build Order table using Tabulator
 const makeTable = (data) => {
+  // If there is no data, return
   if (!data.length) {
     return;
   }
 
   new Tabulator('#po-table', {
-    // Define Table Columns
-    // Pagination: 'local',
-
+    // Define table attributes
     data: data,
     layout: 'fitColumns',
     pagination: 'local',
     paginationSize: 5,
     columns: [
-      // Define Table Columns
+      // Define table columns
       {
         title: 'PO #',
         field: 'po_number',
@@ -149,7 +150,7 @@ const makeTable = (data) => {
         hozAlign: 'center',
         formatter: saveButton,
         cellClick: function (e, cell) {
-          // Function to route api here
+          // Executes function to update Order table on click
           var row = cell.getRow();
           var id = row.getIndex();
           updateData(data, id);

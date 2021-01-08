@@ -1,14 +1,15 @@
-{{#if home}}
-<footer class="footer">
+{{!-- Dynamic Footer using handlebars --}}
+{{#if account}}
+<footer class='footer footer-sticky'>
 
     {{else}}
-    <footer class="footer footer-sticky">
+    <footer class='footer'>
 
         {{/if}}
-        <div class="content has-text-centered">
-            <p class="footer-text">
+        <div class='content has-text-centered'>
+            <p class='footer-text'>
 
-                Copyright <i class="far fa-copyright"></i> 2021 IntelliSup - All Rights Reserved
+                Copyright <i class='far fa-copyright'></i> 2021 IntelliSup - All Rights Reserved
 
             </p>
         </div>

@@ -2,81 +2,86 @@
 
 <main>
 
-    <div class="container">
-        <div class="columns is-centered">
-            <div class="column">
-                <h1 class="title is-3 has-text-centered">ADMIN PANEL</h1>
+    <!-- Admin panel banner -->
+    <div class='container'>
+        <div class='columns is-centered'>
+            <div class='column'>
+                <h1 class='title is-3 has-text-centered'>ADMIN PANEL</h1>
             </div>
         </div>
     </div>
 
+    <!-- Create a purchase order form -->
+    <section class='section'>
 
-    <section class="section">
+        <p class='is-size-1 has-text-centered has-text-weight-bold'>Create A Purchase Order</p>
 
-        <p class="is-size-1 has-text-centered has-text-weight-bold">Create A Purchase Order</p>
+        <div class='container has-background-primary box'>
+            <div class='container box'>
+                <form id='poForm'>
+                    <div class='field is-horizontal'>
 
-        <div class="container has-background-primary box">
-            <div class="container box">
-                <form id="poForm">
-
-                    <div class="field is-horizontal">
-
-                        <div class="field-label is-normal">
-                            <label class="label">PO #:</label>
+                        <!-- PO # field -->
+                        <div class='field-label is-normal'>
+                            <label class='label'>PO #:</label>
                         </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <input type="text" class="input" id="poNum" placeholder="Ex. 12345">
+                        <div class='field-body'>
+                            <div class='field'>
+                                <div class='control'>
+                                    <input type='text' class='input' id='poNum' placeholder='Ex. 12345'>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="field-label is-normal">
-                            <label class="label">Item:</label>
+                        <!-- Item field -->
+                        <div class='field-label is-normal'>
+                            <label class='label'>Item:</label>
                         </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <input type="text" class="input" id="item" placeholder="Ex. Bolts">
+                        <div class='field-body'>
+                            <div class='field'>
+                                <div class='control'>
+                                    <input type='text' class='input' id='item' placeholder='Ex. Bolts'>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="field-label is-normal">
-                            <label class="label">Supplier:</label>
+                        <!-- Supplier field -->
+                        <div class='field-label is-normal'>
+                            <label class='label'>Supplier:</label>
                         </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <div class="select">
-                                        <select id="supplier">
+                        <div class='field-body'>
+                            <div class='field'>
+                                <div class='control'>
+                                    <div class='select'>
+                                        <select id='supplier'>
                                             <option>Select dropdown</option>
-                                            <option value="1">Stark Industries</option>
-                                            <option value="2">Anvil Corp</option>
-                                            <option value="3">Wayne Enterprises</option>
-                                            <option value="4">Lex Corp</option>
-                                            <option value="5">Oscorp</option>
+                                            <option value='1'>Stark Industries</option>
+                                            <option value='2'>Anvil Corp</option>
+                                            <option value='3'>Wayne Enterprises</option>
+                                            <option value='4'>Lex Corp</option>
+                                            <option value='5'>Oscorp</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="field-label is-normal">
-                            <label class="label">Due Date:</label>
+                        <!-- Due Date field -->
+                        <div class='field-label is-normal'>
+                            <label class='label'>Due Date:</label>
                         </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <input type="text" class="input" id="dueDate" placeholder="Ex. 2021-01-01">
+                        <div class='field-body'>
+                            <div class='field'>
+                                <div class='control'>
+                                    <input type='text' class='input' id='dueDate' placeholder='Ex. 2021-01-01'>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="field">
-                            <div class="control">
-                                <input class="button is-primary orderBtn" type="submit" id="orderBtn"></input>
+                        <!-- Submit button -->
+                        <div class='field'>
+                            <div class='control'>
+                                <input class='button is-primary orderBtn' type='submit' id='orderBtn'></input>
                             </div>
                         </div>
 
@@ -88,12 +93,15 @@
         </div>
     </section>
 
-    <p class="is-size-1 has-text-centered has-text-weight-bold">Manage Supplier IDs</p>
-    <div class="container has-background-primary box">
-        <div class="container box">
-            <div id='admin-table'></div>
+    <!-- Form to manage supplier IDs -->
+    <section class='section'>
+        <p class='is-size-1 has-text-centered has-text-weight-bold'>Manage Supplier IDs</p>
+        <div class='container has-background-primary box'>
+            <div class='container box'>
+                <div id='admin-table' class='is-striped is-bordered is-narrow is-hoverable'></div>
+            </div>
         </div>
-    </div>
+    </section>
 
 </main>
 

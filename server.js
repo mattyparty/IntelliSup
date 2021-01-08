@@ -1,10 +1,12 @@
-// Requiring necessary npm packages
+// Requiring necessary modules and files
 require('dotenv').config();
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const db = require('./models');
+
 // Requiring passport as we've configured it
 const passport = require('./config/passport');
 const routes = require('./routes');
@@ -15,8 +17,6 @@ const SYNC_OPTIONS = {
   force: process.env.NODE_ENV === 'test'
 };
 
-const db = require('./models');
-
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 
@@ -24,15 +24,18 @@ const app = express();
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+// Module to assist with securing Express app
 app.use(
   helmet({
     contentSecurityPolicy: false
   })
 );
+
+// Instructions for Express
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// this is saying that the public directly becomes "/" or root of static provided files - mlp
 app.use(express.static('public'));
+
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({
@@ -41,6 +44,8 @@ app.use(
     saveUninitialized: true
   })
 );
+
+// Additional instructions for Express
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(morgan('tiny'));

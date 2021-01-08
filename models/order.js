@@ -1,5 +1,4 @@
-// const { Sequelize } = require("sequelize/types");
-
+// Defining the Order table
 module.exports = (sequelize, DataTypes) => {
   const Order = sequelize.define(
     'order',
@@ -38,9 +37,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
+  // Associating Order table to Supplier Map Login table
   Order.associate = (models) => {
-    // Had to update this in order to get the FK to update
-    // Order.belongsTo(models.supplier, { foreignKey: 'supplier_id' });
     Order.belongsTo(models.supplier_map_login, {
       foreignKey: {
         allowNull: false
@@ -50,7 +48,3 @@ module.exports = (sequelize, DataTypes) => {
 
   return Order;
 };
-
-// select from orders
-// join on supplier_map_login
-// where users =  authtenicated user

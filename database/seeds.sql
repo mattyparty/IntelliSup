@@ -1,5 +1,4 @@
-
-use passport_demo;
+USE passport_demo;
 
 INSERT INTO suppliers (supplier_name,created_at,updated_at)
 VALUES
@@ -10,12 +9,11 @@ VALUES
 ,('Oscorp',now(),now())
 ,('Pym Corp',now(),now());
 
+USE passport_demo;
+-- Make sure id starts at one, if not you have to run this code 
 
-use passport_demo;
--- make sure id starts at one if not you have to run this code 
-
-insert into supplier_map_logins (login_email,supplier_number,created_at, updated_at,supplier_id)
-values 
+INSERT INTO supplier_map_logins (login_email,supplier_number,created_at, updated_at,supplier_id)
+VALUES
 ('tonystark@gmail.com',1,now(),now(),1)
 ,('justinhammer@gmail.com',2,now(),now(),2)
 ,('brucewayne@gmail.com',3,now(),now(),3)
@@ -23,10 +21,7 @@ values
 ,('dococ@gmail.com',5,now(),now(),5)
 ,('antman@gmail.com',6,now(),now(),6);
 
-
-
-
-use passport_demo;
+USE passport_demo;
 
 INSERT INTO orders (po_number,item,po_received,po_due_date,supplier_number,created_at,updated_at,supplier_map_login_id)
 VALUES 
